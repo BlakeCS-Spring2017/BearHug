@@ -1,1 +1,31 @@
 /* Write css here! */
+#circle {
+	width: 400px;
+	height: 400px;
+	border-width: 30px;
+	border-radius: 200px;
+	background: blue;
+	text-align: center;
+	position: relative;
+	left: 36%;
+	bottom: 40px;
+}
+
+#circle2 {
+	width: 300px;
+	height: 300px;
+	border-width: 30px;
+	border-radius: 200px;
+	background: white;
+	text-align: center;
+	position: relative;
+	left: 12.5%;
+	top: 47px;
+}
+
+#taskbar {
+	width: 1440px;
+	height: 40px;
+	background-color: black;
+	bottom: 40px;
+}
