@@ -4,11 +4,12 @@ import './Taskbar.css';
 class Taskbar extends Component {
   render() {
     return (
-      <div>
-        <h2>Taskbar</h2>
-        <p>Here's the HTML for the taskbar!</p>
-        <hr />
-      </div>
+      <ul>
+        <li><a href="default.asp">Home</a></li>
+        <li><a href="beartime.asp">Beartime</a></li>
+        <li><a href="announcements.asp">Announcements</a></li>
+        <li><a href="lunch.asp">Lunch</a></li>
+      </ul>
     );
   }
 }
