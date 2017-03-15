@@ -6,7 +6,15 @@ class Lunch extends Component {
     return (
       <div>
         <h2>Lunch</h2>
-        <p>Here's the HTML for lunch!</p>
+		<div className="panel panel-primary">
+  			<div className="panel-heading">
+    			<h3 className="panel-title">Lunch Menu:</h3>
+ 			</div>
+  			<div className="panel-body">
+    			FOOD!
+  			</div>
+		</div>
+
         <hr />
       </div>
     );

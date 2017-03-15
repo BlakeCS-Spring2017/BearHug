@@ -5,10 +5,10 @@ class Taskbar extends Component {
   render() {
     return (
       <ul>
-        <li><a href="default.asp">Home</a></li>
-        <li><a href="beartime.asp">Beartime</a></li>
-        <li><a href="announcements.asp">Announcements</a></li>
-        <li><a href="lunch.asp">Lunch</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/beartime">Beartime</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/lunch">Lunch</a></li>
       </ul>
     );
   }
