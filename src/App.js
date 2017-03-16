@@ -4,6 +4,7 @@ import Dial from './Dial';
 import Announcements from './Announcements';
 import Lunch from './Lunch';
 import Taskbar from './Taskbar';
+import Beartime from './Beartime';
 import {
   BrowserRouter as Router,
   Route,
@@ -11,44 +12,17 @@ import {
 } from 'react-router-dom'
 
 
-const BasicExample = () => (
+const Bearhug = () => (
   <Router>
     <div>
-      <ul>
-        <li><Link to="/">Dial</Link></li>
-        <li><Link to="/beartime">Beartime</Link></li>
-        <li><Link to="/announcements">Announcements</Link></li>
-        <li><Link to="/lunch">Lunch</Link></li>
-      </ul>
-
+      <Taskbar />
       <Route exact path="/" component={Dial}/>
       <Route path="/beartime" component={Beartime}/>
       <Route path="/announcements" component={Announcements}/>
       <Route path="/lunch" component={Lunch}/>
     </div>
+
   </Router>
 )
 
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <h1>Bear Time Dial</h1>
-        <hr />
-        <Dial />
-        <Announcements />
-        <Lunch />
-        <Taskbar />
-      </div>
-    );
-  }
-}
-
-const Beartime = () => (
-  <div>
-    <h2>Beartime</h2>
-  </div>
-)
-
-export default BasicExample
+export default Bearhug
