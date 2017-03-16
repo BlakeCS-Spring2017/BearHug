@@ -23,7 +23,7 @@
 	border-radius: 0 10em 10em 0;
 	transform-origin: 0% 50%;
 	transform: rotateZ(180deg);
-	animation: moveFirstHalf 8s infinite linear;
+	animation: moveFirstHalf 40s infinite linear;
 }
 
 #circle2 {
@@ -34,7 +34,7 @@
 	border-radius: 10em 0em 0em 10em;
 	transform-origin: 100% 50%;
 	transform: rotateZ(180deg);
-	animation: moveSecondHalf 8s infinite linear;
+	animation: moveSecondHalf 40s infinite linear;
 
 }
 
@@ -47,7 +47,11 @@
 	transform: translateX(-50%);
 	border-radius: 50%;
 	background-color: white;
-}
+	border-right: 2px solid black;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	border-top: 2px solid black;
+	}
 
 #space2 {
 	height: 150px;

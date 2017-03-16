@@ -5,6 +5,7 @@ class Lunch extends Component {
   render() {
     return (
       <div>
+
         <h2>Lunch</h2>
 		<div className="panel panel-primary">
   			<div className="panel-heading">
@@ -16,6 +17,9 @@ class Lunch extends Component {
 		</div>
 
         <hr />
+
+
+
       </div>
     );
   }
