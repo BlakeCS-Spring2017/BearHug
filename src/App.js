@@ -11,8 +11,7 @@ import {
   Link
 } from 'react-router-dom'
 
-
-const Bearhug = () => (
+const BearHug = () => (
   <Router>
     <div>
       <Taskbar />
@@ -21,8 +20,8 @@ const Bearhug = () => (
       <Route path="/announcements" component={Announcements}/>
       <Route path="/lunch" component={Lunch}/>
     </div>
-
   </Router>
 )
 
-export default Bearhug
+export default BearHug
+

@@ -11,7 +11,7 @@ ul {
 
 li {
     display: inline-block;
-    width: 24.8%;
+    width: 25%;
     margin:0;
     padding:0;
 }
@@ -31,12 +31,11 @@ li a:hover {
 
 li a {
     display: block;
-    color: green;
+    color: blue;
     text-align: center;
     padding: 20px 24px;
     margin: auto;
-    text-decoration: none;
-    font-size: 150%;
+    font-size: 200%;
 }
 
 .active {
@@ -57,85 +56,35 @@ ul {
     width: 100%;
 }
 
-
-
-
 /*Here is where we determine size of screen for phones*/
 /*This is for Iphone 6+*/
 @media only screen and (max-width: 414px) and (min-width: 412px) {
-	li {
-    	display: inline-block;
-    	width: 24.8%;
-    	margin:0;
-    	padding:0;
-    }
 
     li a {
-    display: block;
-    color: green;
-    text-align: center;
-    padding: 20px 0px;
-    margin: 0;
-    text-decoration: none;
-    font-size: 60%;
+    font-size: 140%;
 	}
 }
 /*This is for Iphone 6*/
 @media only screen and (max-width: 375px) and (min-width: 375px){
-	li {
-    	display: inline-block;
-    	width: 24.8%;
-    	margin:0;
-    	padding:0;
-    }
 
     li a {
-    display: block;
-    color: green;
-    text-align: center;
-    padding: 20px 0px;
-    margin: 0;
-    text-decoration: none;
-    font-size: 40%;
+    font-size: 130%;
 	}
 }
 
 /*This is for Iphone 5*/
 @media only screen and (max-width: 320px) and (min-width: 320px) {
-	li {
-    	display: inline-block;
-    	width: 24.7%;
-    	margin:0;
-    	padding:0;
-    }
 
     li a {
-    display: block;
-    color: green;
-    text-align: center;
-    padding: 20px 0px;
-    margin: 0;
-    text-decoration: none;
-    font-size: 40%;
+    font-size: 120%;
 	}
 
 }
 
 /*This is for Galaxy S5*/
 @media only screen and (max-width: 360px) and (min-width: 360px) {
-	li {
-    	display: inline-block;
-    	width: 24.6%;
-    	margin:0;
-    	padding:0;
-    }
+
     li a {
-    display: block;
-    color: green;
-    text-align: center;
-    padding: 20px 0px;
-    margin: 0;
-    text-decoration: none;
-    font-size: 40%;
+    font-size: 140%;
 	}
 }

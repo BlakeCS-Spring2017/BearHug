@@ -11,17 +11,25 @@ class Taskbar extends Component {
     return (
     <div>
       <ul>
-        <li><a href="/">Home</a></li>
+        <li><a href="/">Dial</a></li>
         <li><a href="/beartime">Beartime</a></li>
         <li><a href="/announcements">Announcements</a></li>
         <li><a href="/lunch">Lunch</a></li>
       </ul>
 
       <ul>
-        <li><Link to="/">Dial</Link></li>
-        <li><Link to="/beartime">Beartime</Link></li>
-        <li><Link to="/announcements">Announcements</Link></li>
-        <li><Link to="/lunch">Lunch</Link></li>
+        <li><Link to="/">
+          <span className="glyphicon glyphicon-home" aria-hidden="true"></span>
+        </Link></li>
+        <li><Link to="/beartime">
+          <span className="glyphicon glyphicon-time" aria-hidden="true"></span>
+        </Link></li>
+        <li><Link to="/announcements">
+          <span className="glyphicon glyphicon-bell" aria-hidden="true"></span>
+        </Link></li>
+        <li><Link to="/lunch">
+          <span className="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+        </Link></li>
       </ul>
      
 
