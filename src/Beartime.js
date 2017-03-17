@@ -5,9 +5,7 @@ class Beartime extends Component {
   render() {
     return (
       <div>
-      	<h1>Hello</h1>
-
-
+      		<iframe src="https://beartime.blakeschool.org/" id="beartime" /*width="1420px" height="760px"*/> </iframe>
       </div>
     );
   }
