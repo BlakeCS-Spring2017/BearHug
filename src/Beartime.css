@@ -29,3 +29,10 @@
 		height: 640px;
 	}
 }
+
+
+/*Beartime for a regular screen*/
+#beartime {
+	width: 100%;
+	height: 780px;
+}
