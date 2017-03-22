@@ -5,21 +5,12 @@ class Lunch extends Component {
   render() {
     return (
       <div>
-
-        <h2>Lunch</h2>
-		<div className="panel panel-primary">
-  			<div className="panel-heading">
-    			<h3 className="panel-title">Lunch Menu:</h3>
- 			</div>
-  			<div className="panel-body">
-    			FOOD!
-  			</div>
-		</div>
-
-        <hr />
-
-
-
+        <div className="page-title">
+          Lunch
+        </div>
+        <div className="lunch-menu">
+          Swedish Meatballs <br /> Peruvian Causa <br /> Grilled Cheese with Pesto and Provolone <br /> Creamy Polenta <br /> Winter Fruit Salad with Lemon Dressing <br /> Brownie
+        </div>
       </div>
     );
   }
