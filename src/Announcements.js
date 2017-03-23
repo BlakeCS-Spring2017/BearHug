@@ -5,6 +5,8 @@ class Announcements extends Component {
   render() {
     return (
       <div>
+
+      //top 3 announcements
         <div className="page-title">
           Announcements
         </div>
@@ -17,9 +19,16 @@ class Announcements extends Component {
 
         <div className="announcement">
           <span className="announcement-title">
+          <button class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
           Anouncement #2
+          </button>
           </span>
           <span className="triangle"></span>
+          <div class="collapse" id="collapseExample">
+              <div class="description">
+                  ...
+              </div>
+          </div>
         </div>
 
         <div className="announcement">
@@ -28,23 +37,7 @@ class Announcements extends Component {
           </span>
           <span className="triangle"></span>
         </div>
-
-        <button className="announcement">Announcement #1</button>
-            <div class="panel">
-                <p>Lorem ipsum...</p>
-            </div>
-
-        <button className="announcement">Announcement #2</button>
-            <div class="panel">
-                <p>Lorem ipsum...</p>
-            </div>
-
-        <button className="announcement">Announcement #3</button>
-            <div class="panel">
-                <p>Lorem ipsum...</p>
-            </div>
-
-      </div>
+        </div>
 
     );
   }
