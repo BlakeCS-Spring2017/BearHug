@@ -1,8 +1,4 @@
 /* Write css here! */
-.panel-body {
-	background-color: #2C383E;
-	color: white;
-}
 
 h1 {
 	color: white;
@@ -41,6 +37,7 @@ h1 {
     border-top: 20px solid #969696;
     align-self: center;
     float: right;
+    transform: rotate(0turn);
 }
 
 .triangle-up {
@@ -56,8 +53,19 @@ h1 {
 button {
 	background-color: #3f51b5;
 	border: 0;
-	width: 200px;
+	width: 75%;
 	text-align: left;
 }
 
+
+.triangle.collapse {
+	display: block;
+	transform: rotate(.5turn);
+
+
+}
+
+.triangle.collapse.in {
+	transform: rotate(0turn);
+}
 
