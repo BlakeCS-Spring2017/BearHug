@@ -10,18 +10,46 @@ import {
   Route,
   Link
 } from 'react-router-dom'
+import * as firebase from 'firebase';
 
-const BearHug = () => (
-  <Router>
-    <div>
-      <Taskbar />
-      <Route exact path="/" component={Dial}/>
-      <Route path="/beartime" component={Beartime}/>
-      <Route path="/announcements" component={Announcements}/>
-      <Route path="/lunch" component={Lunch}/>
-    </div>
-  </Router>
-)
+const config = {
+        apiKey: "AIzaSyDvOynKV6mf5BkERbfHUnedRyyLxM9kpTg",
+        authDomain: "bearhug-e6890.firebaseapp.com",
+        databaseURL: "https://bearhug-e6890.firebaseio.com",
+        storageBucket: "bearhug-e6890.appspot.com",
+        messagingSenderId: "1044694721899"
+};
 
-export default BearHug
+const fb = firebase  
+  .initializeApp(config)
+  .database()
+  .ref();
+
+class App extends Component{
+  componentWillMount() {
+
+    this.state = {announcements: 3};
+    fb.on('value', snapshot => {  
+      console.log(snapshot.val())
+      this.setState({announcements: snapshot.val().Announcements, lunch: snapshot.val().Lunch});
+    });
+  } 
+  render(){
+    return(
+        <Router>
+          <div>
+            <Taskbar />
+            <Route exact path="/" component={Dial}/>
+            <Route path="/beartime" component={Beartime}/>
+            <Route path="/announcements" render={() => <Announcements something={this.state.announcements}/>}/>
+            <Route path="/lunch" component={Lunch}/>
+          </div>
+        </Router>
+    );
+  }
+}
+
+
+export default App
+
 
