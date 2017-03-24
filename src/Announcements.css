@@ -37,7 +37,6 @@ h1 {
     border-top: 20px solid #969696;
     align-self: center;
     float: right;
-    transform: rotate(0turn);
 }
 
 .triangle-up {
@@ -53,7 +52,7 @@ h1 {
 button {
 	background-color: #3f51b5;
 	border: 0;
-	width: 75%;
+	width: 85%;
 	text-align: left;
 }
 
@@ -61,6 +60,7 @@ button {
 .triangle.collapse {
 	display: block;
 	transform: rotate(.5turn);
+	transition: .1s;
 
 
 }
@@ -69,3 +69,14 @@ button {
 	transform: rotate(0turn);
 }
 
+/*.collapseExample1 {
+	transition: .1s;
+}
+
+.collapseExample2 {
+	transition: .1s;
+}
+
+.collapseExample3 {
+	transition: .1s;
+}*/

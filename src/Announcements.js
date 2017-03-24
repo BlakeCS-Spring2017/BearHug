@@ -17,7 +17,7 @@ class Announcements extends Component {
           </button>
           </span>
           <span className="triangle collapseExample1"></span>
-          <div class="collapse" className="collapseExample1">
+          <div class="collapse" className="collapseExample1 collapse">
               <div class="description">
                   ...
               </div>
@@ -31,7 +31,7 @@ class Announcements extends Component {
           </button>
           </span>
           <span className="triangle collapseExample2"></span>
-          <div class="collapse" className="collapseExample2">
+          <div class="collapse" className="collapseExample2 collapse">
               <div class="description">
                   ...
               </div>
@@ -44,7 +44,7 @@ class Announcements extends Component {
           </button>
           </span>
           <span className="triangle collapseExample3"></span>
-          <div class="collapse" className="collapseExample3">
+          <div class="collapse" className="collapseExample3 collapse">
               <div class="description">
                   ...
               </div>
