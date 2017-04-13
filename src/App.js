@@ -16,7 +16,7 @@ const BearHug = () => (
     <div>
       <Taskbar />
       <Route exact path="/" component={Dial}/>
-      <Route path="/beartime" component={Beartime}/>
+      <Route path="/beartime" component={Beartime}/>                                                                                                        
       <Route path="/announcements" component={Announcements}/>
       <Route path="/lunch" component={Lunch}/>
     </div>

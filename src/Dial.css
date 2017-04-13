@@ -1,19 +1,9 @@
 
-#svgCircle {
-	position: relative;
-	display: inline-block;
-	margin: 0 auto;
-	z-index: 1;
-}
-
-#box{
-	height: 667px;
-	width: 375px;
-	overflow: visible;
-	z-index: 0;
+#arc{
+	
 }
 
 #timer {
-	z-index: 2;
+	position: relative;
+	z-index: 1;
 }
-
