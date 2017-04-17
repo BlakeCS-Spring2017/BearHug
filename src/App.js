@@ -8,7 +8,6 @@ import Beartime from './Beartime';
 import {
   BrowserRouter as Router,
   Route,
-  Link
 } from 'react-router-dom'
 import * as firebase from 'firebase';
 
@@ -27,11 +26,9 @@ const fb = firebase
 
 class App extends Component{
   componentWillMount() {
-
     this.state = {announcements: 3};
     fb.on('value', snapshot => {  
-      console.log(snapshot.val())
-      this.setState({announcements: snapshot.val().Announcements, lunch: snapshot.val().Lunch});
+      this.setState({announcements: snapshot.val().Announcements});
     });
   } 
   render(){
@@ -41,7 +38,7 @@ class App extends Component{
             <Taskbar />
             <Route exact path="/" component={Dial}/>
             <Route path="/beartime" component={Beartime}/>
-            <Route path="/announcements" render={() => <Announcements something={this.state.announcements}/>}/>
+            <Route path="/announcements" render={() => <Announcements Anntotal={this.state.announcements}/>}/>
             <Route path="/lunch" component={Lunch}/>
           </div>
         </Router>

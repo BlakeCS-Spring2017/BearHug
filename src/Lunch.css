@@ -1,1 +1,15 @@
 /* Write css here! */
+h2 {
+	color: white;
+}
+
+.lunch-menu {
+	color: white;
+	margin: 10px;
+	padding: 15px;
+	background-color: #007D57;
+	border-radius: 7px;
+	font-size: 20px;
+	font-weight: lighter;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
