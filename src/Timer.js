@@ -13,7 +13,7 @@ class Timer extends Component {
 		};
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.timer = setInterval(this.decrementTimer, 1000);
 	}
 

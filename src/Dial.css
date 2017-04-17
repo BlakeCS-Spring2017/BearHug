@@ -1,6 +1,9 @@
 
-#arc{
-	
+#dialBox{
+	margin-top: 50px;
+	height: 350px;
+	width: 350px;
+	/*determines size of the svg box*/
 }
 
 #timer {

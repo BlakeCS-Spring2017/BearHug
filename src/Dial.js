@@ -3,25 +3,61 @@ import './Dial.css';
 import Timer from './Timer';
 
 class Dial extends Component {
-  render() {
-        
-         var radians=(Math.PI)/.5
-         var point1x=0
-         var point1y=-1
-         var point2x=Math.cos(radians);
-         var point2y=-Math.sin(radians)
-         var point3x=Math.cos(radians)*.8
-         var point3y=-Math.sin(radians)*.8
-         var point4x=0
-         var point4y=-.8
+    constructor() {
+        super()
+        this.rad=1*Math.PI
+    }
+    componentWillMount() {
+        this.timeLeft=50
+        this.classTime=120
+    }
 
-         var arcPath ="M "+point1x+" "+point1y+" A 1 1, 0, 0 1, " +point2x+" "+point2y+" L "+point3x+" "+point3y+" A .8 .8, 0, 0 0, "+point4x+" "+point4y+ " Z";
+     calculateRadians() {
+        var percent=this.timeLeft/this.classTime
+        this.rad=percent*2*Math.PI
+    };
+
+  render() {
+
+        this.calculateRadians()
+
+        var point1x=0
+        var point1y=-1
+        var point2x=Math.sin(this.rad)
+        var point2y=-Math.cos(this.rad)
+        var point3x=Math.sin(this.rad)*.8
+        var point3y=-Math.cos(this.rad)*.8    
+        var point4x=0
+        var point4y=-.8
+        var orientOut= "1 1"
+        var orientIn= "1 0"
+
+            if (this.rad > Math.PI) {
+                point2x=Math.sin(this.rad)
+                point2y=-Math.cos(this.rad)
+                point3x=Math.sin(this.rad)*.8
+                point3y=-Math.cos(this.rad)*.8
+                orientOut= "1 1"
+                orientIn= "1 0"
+            }
+            // this is the left side
+            if (this.rad <= Math.PI) {
+                point2x=Math.sin(this.rad)
+                point2y=-Math.cos(this.rad)
+                point3x=Math.sin(this.rad)*.8
+                point3y=-Math.cos(this.rad)*.8
+                orientOut= "0 1"
+                orientIn= "0 0"
+            }
+            // this is the right side
+
+         var arcPath ="M "+point1x+" "+point1y+" A 1 1, 0, "+orientOut+" "+point2x+" "+point2y+" L "+point3x+" "+point3y+" A .8 .8, 0, "+orientIn+" "+point4x+" "+point4y+ " Z";
          
     return (
 
     <div>
       
-        <svg width="400" height="400" viewBox="-1 -1 2 2">
+        <svg id="dialBox" viewBox="-1 -1 2 2">
          <path id="arc" d={arcPath} fill="green"/>
          </svg>
 
@@ -32,19 +68,14 @@ class Dial extends Component {
 
     </div>
     );
-  }
+  } 
+
+   
+
 }
 
-var timeLeft= 100
-var classTime= 120
-calculateRadians() {
-return(
-timeLeft/classTime*2*Math.PI
-)
-}
 
 export default Dial;
  
-
         
            
