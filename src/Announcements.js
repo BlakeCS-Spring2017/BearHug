@@ -4,52 +4,54 @@ import './Announcements.css';
 class Announcements extends Component {
   render() {
     return (
+      <div>
 
-      <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-        <h1>Announcements</h1>
-        <div className="panel panel-default">
-          <div className="panel-heading" role="tab" id="headingOne">
-            <h4 className="panel-title">
-              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Announcement #1
-              </a>
-            </h4>
+      //top 3 announcements
+        <div className="page-title">
+          Announcements
+        </div>
+        <div className="announcement" class="accordion-body collapse">
+          <span className="announcement-title">
+          <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href=".collapseExample1" aria-expanded="fasle" aria-controls="collapseExample">
+          Anouncement #1
+          </button>
+          </span>
+          <span className="triangle collapseExample1"></span>
+          <div class="collapse" className="collapseExample1 collapse">
+              <div class="description">
+                  ...
+              </div>
           </div>
-        <div id="collapseOne" className="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-          <div className="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
+        </div>
+
+        <div className="announcement" class="accordion-body collapse">
+          <span className="announcement-title">
+          <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href=".collapseExample2" aria-expanded="fasle" aria-controls="collapseExample">
+          Anouncement #2
+          </button>
+          </span>
+          <span className="triangle collapseExample2"></span>
+          <div class="collapse" className="collapseExample2 collapse">
+              <div class="description">
+                  ...
+              </div>
+          </div>
+        </div>
+        <div className="announcement" class="accordion-body collapse">
+          <span className="announcement-title">
+          <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href=".collapseExample3" aria-expanded="fasle" aria-controls="collapseExample">
+          Anouncement #3
+          </button>
+          </span>
+          <span className="triangle collapseExample3"></span>
+          <div class="collapse" className="collapseExample3 collapse">
+              <div class="description">
+                  ...
+              </div>
           </div>
         </div>
       </div>
-    <div className="panel panel-default">
-      <div className="panel-heading" role="tab" id="headingTwo">
-        <h4 className="panel-title">
-          <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Announcement #2
-          </a>
-        </h4>
-      </div>
-      <div id="collapseTwo" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-        <div className="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-    <div className="panel panel-default">
-      <div className="panel-heading" role="tab" id="headingThree">
-        <h4 className="panel-title">
-          <a className="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Announcement #3
-          </a>
-        </h4>
-      </div>
-      <div id="collapseThree" className="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-        <div className="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably havent heard of them accusamus labore sustainable VHS.
-        </div>
-      </div>
-    </div>
-  </div>
+
     );
   }
 }
