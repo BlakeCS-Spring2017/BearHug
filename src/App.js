@@ -30,6 +30,10 @@ class App extends Component{
     fb.on('value', snapshot => {  
       this.setState({announcements: snapshot.val().Announcements});
     });
+    this.state = {lunch: 3}
+    fb.on('value', snapshot => {
+      this.setState({lunch: snapshot.val().Lunch});
+    });
   } 
   render(){
     return(
@@ -39,7 +43,7 @@ class App extends Component{
             <Route exact path="/" component={Dial}/>
             <Route path="/beartime" component={Beartime}/>
             <Route path="/announcements" render={() => <Announcements Anntotal={this.state.announcements}/>}/>
-            <Route path="/lunch" component={Lunch}/>
+            <Route path="/lunch" render={() => <Lunch Luntotal={this.state.lunch}/>}/>
           </div>
         </Router>
     );

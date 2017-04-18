@@ -3,13 +3,38 @@ import './Lunch.css';
 
 class Lunch extends Component {
   render() {
+    if (this.props.Luntotal != null){
+    function ObjectLength(object) {
+      var length = 0;
+      for( var key in object ) {
+        if( object.hasOwnProperty(key) ) {
+          ++length;
+        }
+      }
+      return length;
+    };
+    var num = ObjectLength(this.props.Luntotal);
+    var things = [];
+    var keys = Object.keys(this.props.Luntotal);
+    for (var i = 0; i < num; i++) {
+      things.push(this.props.Luntotal[keys[i]]);
+    }   
+    var array = [];
+    for (var i=0; i < num; ++i) {
+      array.push(
+      <div>
+        {things[i]}
+      </div>
+      );
+    }
+  }
     return (
       <div>
         <div className="page-title">
           Lunch
         </div>
         <div className="lunch-menu">
-          Swedish Meatballs <br /> Peruvian Causa <br /> Grilled Cheese with Pesto and Provolone <br /> Creamy Polenta <br /> Winter Fruit Salad with Lemon Dressing <br /> Brownie
+          {array}
         </div>
       </div>
     );
