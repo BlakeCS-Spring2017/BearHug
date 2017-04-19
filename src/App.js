@@ -26,13 +26,13 @@ const fb = firebase
 
 class App extends Component{
   componentWillMount() {
-    this.state = {announcements: 3};
+    this.state = {announcements: null};
     fb.on('value', snapshot => {  
-      this.setState({announcements: snapshot.val().Announcements});
+      this.setState({announcements: snapshot.val().announcements});
     });
-    this.state = {lunch: 3}
+    this.state = {lunch: null}
     fb.on('value', snapshot => {
-      this.setState({lunch: snapshot.val().Lunch});
+      this.setState({lunch: snapshot.val().lunch});
     });
   } 
   render(){
@@ -42,7 +42,7 @@ class App extends Component{
             <Taskbar />
             <Route exact path="/" component={Dial}/>
             <Route path="/beartime" component={Beartime}/>
-            <Route path="/announcements" render={() => <Announcements Anntotal={this.state.announcements}/>}/>
+            <Route path="/announcements" render={() => <Announcements anntotal={this.state.announcements}/>}/>
             <Route path="/lunch" render={() => <Lunch Luntotal={this.state.lunch}/>}/>
           </div>
         </Router>

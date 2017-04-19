@@ -3,39 +3,39 @@ import './Announcements.css';
 
 class Announcements extends Component {
   render() {
-      if (this.props.Anntotal != null) {
-        console.log(this.props.Anntotal)
-        function ObjectLength(object) {
+      if (this.props.anntotal != null) {
+        console.log(this.props.anntotal)
+        function objectlength(obj) {
           var length = 0;
-          for( var key in object ) {
-            if( object.hasOwnProperty(key) ) {
+          for( var key in obj ) {
+            if( obj.hasOwnProperty(key) ) {
               ++length;
             }
           }
           return length;
         };
-        var num = ObjectLength(this.props.Anntotal);
+        var num = objectlength(this.props.anntotal);
         console.log(num);
         var things = [];
-        var keys = Object.keys(this.props.Anntotal);
+        var keys = Object.keys(this.props.anntotal);
         for (var i = 0; i < num; i++) {
-          things.push(this.props.Anntotal[keys[i]]);
+          things.push(this.props.anntotal[keys[i]]);
         }   
         console.log(things);
         var array = [];
-        for (var i=0; i < num; ++i) {
+        for (var j = 0; j < num; ++j) {
           array.push(
               <div>
-                <div className="announcement" class="accordion-body collapse" id={"collapse" + i}>
+                <div className="announcement" id={"announcement" + j}>
                   <span className="announcement-title">
-                  <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href={".collapse" + i} aria-expanded="fasle" aria-controls="collapseExample">
-                  {things[i].Title}
-                  <span className={"triangle collapse" + i}></span>
+                  <button role="button" data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample">
+                  {things[j].title}
+                  <span className={"triangle collapse" + j}></span>
                   </button>
                   </span>
-                  <div className={"collapse collapse" + i}>
+                  <div className={"collapse collapse" + j}>
                   <div className="description">
-                  {things[i].Description}
+                  {things[j].description}
                   </div>
                 </div>
               </div>
