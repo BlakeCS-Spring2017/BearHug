@@ -14,6 +14,7 @@ li {
     width: 25%;
     margin:0;
     padding:0;
+   
 }
 
 a {
@@ -54,6 +55,11 @@ ul {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.glyphicon{
+	font-size:20px;
+	color:gray;
 }
 
 /*Here is where we determine size of screen for phones*/

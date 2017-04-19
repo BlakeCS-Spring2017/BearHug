@@ -25,7 +25,7 @@ class Announcements extends Component {
         var array = [];
         for (var i=0; i < num; ++i) {
           array.push(
-              <div>
+            
                 <div className="announcement" class="accordion-body collapse" id={"collapse" + i}>
                   <span className="announcement-title">
                   <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href={".collapse" + i} aria-expanded="fasle" aria-controls="collapseExample">
@@ -39,7 +39,7 @@ class Announcements extends Component {
                   </div>
                 </div>
               </div>
-            </div>
+          
           );
         }
       }
@@ -54,7 +54,7 @@ class Announcements extends Component {
         </div>
       </div>
     );
-  }
+  } 
 }
 
 export default Announcements;

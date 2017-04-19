@@ -23,10 +23,10 @@ class Taskbar extends Component {
           <span className="glyphicon glyphicon-time" aria-hidden="true"></span>
         </Link></li>
         <li><Link to="/announcements">
-          <span className="glyphicon glyphicon-bell" aria-hidden="true"></span>
+          <span className="glyphicon glyphicon-bullhorn" aria-hidden="true"></span>
         </Link></li>
         <li><Link to="/lunch">
-          <span className="glyphicon glyphicon-cutlery" aria-hidden="true"></span>
+          <span className="glyphicon glyphicon-apple" aria-hidden="true"></span>
         </Link></li>
       </ul>
      
