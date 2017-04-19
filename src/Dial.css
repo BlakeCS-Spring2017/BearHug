@@ -1,12 +1,26 @@
 
 #dialBox{
+	position: absolute;
 	margin-top: 50px;
-	height: 350px;
-	width: 350px;
+	/* changes position*/
+	height: 400px;
+	width: 400px;
 	/*determines size of the svg box*/
+	fill: green;
+}
+
+#insideDial{
+	position: absolute;
+	margin-top: 50px;
+	/* changes position*/
+	height: 400px;
+	width: 400px;
+	/*determines size of the svg box*/
+	fill: white;
 }
 
 #timer {
-	position: relative;
+	position: absolute;
+	margin-left: 50px;
 	z-index: 1;
 }
