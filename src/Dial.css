@@ -1,5 +1,5 @@
 
-#dialBox{
+#outsideDial{
 	position: absolute;
 	margin-top: 50px;
 	/* changes position*/
@@ -15,9 +15,11 @@
 	/* changes position*/
 	height: 400px;
 	width: 400px;
-	/*determines size of the svg box*/
-	fill: white;
+	/* determines size of the svg box */
+	fill: gray;
 }
+
+/* always make the height and width and positioning of both inside and outside dial the same!! */
 
 #timer {
 	position: absolute;
