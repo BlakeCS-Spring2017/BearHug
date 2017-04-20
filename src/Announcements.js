@@ -3,8 +3,8 @@ import './Announcements.css';
 
 class Announcements extends Component {
   render() {
-      if (this.props.Anntotal != null) {
-        console.log(this.props.Anntotal)
+      if (this.props.annTotal != null) {
+        console.log(this.props.annTotal)
         function ObjectLength(object) {
           var length = 0;
           for( var key in object ) {
@@ -14,12 +14,12 @@ class Announcements extends Component {
           }
           return length;
         };
-        var num = ObjectLength(this.props.Anntotal);
+        var num = ObjectLength(this.props.annTotal);
         console.log(num);
         var things = [];
-        var keys = Object.keys(this.props.Anntotal);
+        var keys = Object.keys(this.props.annTotal);
         for (var i = 0; i < num; i++) {
-          things.push(this.props.Anntotal[keys[i]]);
+          things.push(this.props.annTotal[keys[i]]);
         }   
         console.log(things);
         var array = [];
@@ -29,13 +29,13 @@ class Announcements extends Component {
                 <div className="announcement" class="accordion-body collapse" id={"collapse" + i}>
                   <span className="announcement-title">
                   <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href={".collapse" + i} aria-expanded="fasle" aria-controls="collapseExample">
-                  {things[i].Title}
+                  {things[i][0]}
                   <span className={"triangle collapse" + i}></span>
                   </button>
                   </span>
                   <div className={"collapse collapse" + i}>
                   <div className="description">
-                  {things[i].Description}
+                  {things[i][1]}
                   </div>
                 </div>
               </div>

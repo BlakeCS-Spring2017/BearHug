@@ -5,7 +5,7 @@ ul {
     margin: 0 auto;
     padding: 0;
     list-style: none;
-    background-color: #dddddd;
+    background-color: #151D21;
 }
 
 
@@ -21,18 +21,17 @@ a {
     display: block;
     padding: 0px 24px;
     margin: 0;
-    background-color: #dddddd;
-    border-left: 1px solid #bbb;
-    border-right: 1px solid #bbb;
+    background-color: #151D21;
+    border-left: 1px solid #151D21;
+    border-right: 1px solid #151D21;
 }
 
 li a:hover {
-    background-color: #bbb;
+    background-color: #0C1519;
 }
 
 li a {
     display: block;
-    color: blue;
     text-align: center;
     padding: 20px 24px;
     margin: auto;
@@ -40,11 +39,11 @@ li a {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #0C1519;
 }
 
 li {
-    border-right: 1px solid #bbb;
+    border-right: 1px solid #151D21;
 }
 
 li:last-child {
