@@ -17,6 +17,10 @@ class Timer extends Component {
 		this.timer = setInterval(this.decrementTimer, 1000);
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
 	decrementTimer() {
 		var timeRemaining = this.state.timeRemaining - 1
 		if (timeRemaining <= 0) {

@@ -21,9 +21,14 @@ class Dial extends Component {
     componentWillMount() {
         this.moveDial = this.moveDial.bind(this);
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
-        setInterval(this.moveDial, 1);
+        this.intervalID = setInterval(this.moveDial, 1);
         this.numberOfClasses = 6;
     }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalID);
+    }
+
     moveDial() {
         var newState = this.state.timeLeft
         if (this.state.timeLeft > 3599 && this.state.timeLeft < 3601) {
