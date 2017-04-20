@@ -1,71 +1,30 @@
-.ViewContainer1 {
+
+#outsideDial{
 	position: absolute;
-	top: 5em;
-	left: 50%;
-	width: 5em;
-	height: 10em;	
-	overflow: hidden;
+	margin-top: 50px;
+	/* changes position*/
+	height: 400px;
+	width: 400px;
+	/*determines size of the svg box*/
+	fill: green;
 }
-.ViewContainer2 {
+
+#insideDial{
 	position: absolute;
-	top: 5em;
-	right: 50%;
-	width: 5em;
-	height: 10em;
-	overflow: hidden;
+	margin-top: 50px;
+	/* changes position*/
+	height: 400px;
+	width: 400px;
+	/* determines size of the svg box */
+	fill: hotpink;
+	transform: rotate(0deg);
 }
+/* maybe use offset to rotate svg */
 
-#circle {
-	position: relative;
-	background-color: green;
-	width: 100%;
-	height: 100%;
-	border-radius: 0 10em 10em 0;
-	transform-origin: 0% 50%;
-	transform: rotateZ(180deg);
-	animation: moveFirstHalf 40s infinite linear;
-}
+/* always make the height and width and positioning of both inside and outside dial the same!! */
 
-#circle2 {
-	position: relative;
-	background-color: green;
-	width: 100%;
-	height: 100%;
-	border-radius: 10em 0em 0em 10em;
-	transform-origin: 100% 50%;
-	transform: rotateZ(180deg);
-	animation: moveSecondHalf 40s infinite linear;
-
-}
-
-#hidingCircle {
+#timer {
 	position: absolute;
-	height: 8em;
-	width: 8em;
-	top: 6em;
-	left: 50%;
-	transform: translateX(-50%);
-	border-radius: 50%;
-	background-color: white;
-	border-right: 2px solid black;
-	border-bottom: 2px solid black;
-	border-left: 2px solid black;
-	border-top: 2px solid black;
-	}
-
-#space2 {
-	height: 150px;
+	margin-left: 50px;
+	z-index: 1;
 }
-
-
-@keyframes moveFirstHalf {
-	0% {transform: rotateZ(180deg)}
-	50% {transform: rotateZ(360deg)}
-	100% {transform: rotateZ(360deg)}
-}
-@keyframes moveSecondHalf {
-	0% {transform: rotateZ(180deg)}
-	50% {transform: rotateZ(180deg)}
-	100% {transform: rotateZ(360deg)}
-}
-

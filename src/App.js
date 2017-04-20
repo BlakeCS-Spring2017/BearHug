@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom'
 import * as firebase from 'firebase';
 
+
 const config = {
         apiKey: "AIzaSyDvOynKV6mf5BkERbfHUnedRyyLxM9kpTg",
         authDomain: "bearhug-e6890.firebaseapp.com",
@@ -52,5 +53,6 @@ class App extends Component{
 
 
 export default App
+
 
 
