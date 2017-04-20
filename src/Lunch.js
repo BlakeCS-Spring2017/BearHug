@@ -3,27 +3,27 @@ import './Lunch.css';
 
 class Lunch extends Component {
   render() {
-    if (this.props.Luntotal != null){
-    function ObjectLength(object) {
-      var length = 0;
-      for( var key in object ) {
-        if( object.hasOwnProperty(key) ) {
-          ++length;
+    if (this.props.lunTotal != null){
+    function objectLength(obj) {
+      var lunLen = 0;
+      for( var key in obj) {
+        if( obj.hasOwnProperty(key) ) {
+          ++lunLen;
         }
       }
-      return length;
+      return lunLen;
     };
-    var num = ObjectLength(this.props.Luntotal);
-    var things = [];
-    var keys = Object.keys(this.props.Luntotal);
-    for (var i = 0; i < num; i++) {
-      things.push(this.props.Luntotal[keys[i]]);
+    var lenLun = objectLength(this.props.lunTotal);
+    var lunArray = [];
+    var keys = Object.keys(this.props.lunTotal);
+    for (var i = 0; i < lenLun; i++) {
+      lunArray.push(this.props.lunTotal[keys[i]]);
     }   
-    var array = [];
-    for (var i=0; i < num; ++i) {
-      array.push(
+    var lunList = [];
+    for (var j = 0; j < lenLun; ++j) {
+      lunList.push(
       <div>
-        {things[i]}
+        {lunArray[j]}
       </div>
       );
     }
@@ -34,7 +34,7 @@ class Lunch extends Component {
           Lunch
         </div>
         <div className="lunch-menu">
-          {array}
+          {lunList}
         </div>
       </div>
     );

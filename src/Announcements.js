@@ -3,57 +3,54 @@ import './Announcements.css';
 
 class Announcements extends Component {
   render() {
-      if (this.props.anntotal != null) {
-        console.log(this.props.anntotal)
-        function objectlength(obj) {
-          var length = 0;
+      if (this.props.annTotal != null) {
+        function objectLength(obj) {
+          var annLength = 0;
           for( var key in obj ) {
             if( obj.hasOwnProperty(key) ) {
-              ++length;
+              ++annLength;
             }
           }
-          return length;
+          return annLength;
         };
-        var num = objectlength(this.props.anntotal);
-        console.log(num);
-        var things = [];
-        var keys = Object.keys(this.props.anntotal);
-        for (var i = 0; i < num; i++) {
-          things.push(this.props.anntotal[keys[i]]);
+        var lenAnn = objectLength(this.props.annTotal);
+        var annArray = [];
+        var keys = Object.keys(this.props.annTotal);
+        for (var i = 0; i < lenAnn; i++) {
+          annArray.push(this.props.annTotal[keys[i]]);
         }   
-        console.log(things);
-        var array = [];
-        for (var j = 0; j < num; ++j) {
-          array.push(
+        var annList = [];
+        for (var j = 0; j < lenAnn; ++j) {
+          annList.push(
               <div>
                 <div className="announcement" id={"announcement" + j}>
                   <span className="announcement-title">
-                  <button role="button" data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample">
-                  {things[j].title}
-                  <span className={"triangle collapse" + j}></span>
-                  </button>
+                    <button role="button" data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample">
+                      {annArray[j][0]}
+                      <span className={"triangle collapse" + j}></span>
+                    </button>
                   </span>
                   <div className={"collapse collapse" + j}>
-                  <div className="description">
-                  {things[j].description}
+                    <div className="description">
+                      {annArray[j][1]}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
           );
         }
-      }
-    return (
-      <div>
-         <div className="page-title">
-          Announcements
-        </div>
-        
-        <div>
-          {array}
-        </div>
+  }
+  return (
+    <div>
+      <div className="page-title">
+        Announcements
       </div>
-    );
+        
+      <div>
+        {annList}
+      </div>
+    </div>
+  );
   }
 }
 
