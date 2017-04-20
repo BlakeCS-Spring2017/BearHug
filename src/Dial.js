@@ -8,20 +8,36 @@ class Dial extends Component {
         this.rad = 1 * Math.PI;
         this.srad = 1 * Math.PI;
         this.thickness = .75;
-        this.sthickness = .5;
+        this.sthickness = .35;
         this.gap = .95;
         // thickness and sthickness determine width of arc
         // gap adds distance between the outside and inside circle
+         this.state = {
+            timeLeft : 0,
+            classTime : 3600,
+        };
     }
 
     componentWillMount() {
-        this.timeLeft = 80;
-        this.classTime = 100;
-        this.numberOfClasses = 7;
+        this.moveDial = this.moveDial.bind(this);
+        this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
+        setInterval(this.moveDial, 1);
+        this.numberOfClasses = 6;
+    }
+    moveDial() {
+        var newState = this.state.timeLeft
+        if (this.state.timeLeft > 3599 && this.state.timeLeft < 3601) {
+            this.setState({timeLeft : 0});
+            newState = 0;
+        }
+
+        newState = newState + 0.01
+        this.setState({timeLeft: newState, classTime: 3600});
+
     }
 
     calculateRadiansOutside() {
-        var percent = this.timeLeft / this.classTime;
+        var percent = this.state.timeLeft / this.state.classTime;
         this.rad = percent * 2 * Math.PI;
     };
 
@@ -90,6 +106,7 @@ class Dial extends Component {
         <svg id="insideDial" viewBox="-1 -1 2 2">
         // viewbox makes the graph with sin and cos possible
             <path id="arc" d={littlePath}/>
+            <p> Hi </p>
         </svg>
 
 
