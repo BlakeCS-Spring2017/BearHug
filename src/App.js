@@ -34,7 +34,6 @@ class App extends Component{
     this.state = {lunch: null}
     fb.on('value', snapshot => {
       this.setState({lunch: snapshot.val().masterLunch});
-
     });
   } 
   render(){
@@ -44,10 +43,8 @@ class App extends Component{
             <Taskbar />
             <Route exact path="/" component={Dial}/>
             <Route path="/beartime" component={Beartime}/>
-
             <Route path="/announcements" render={() => <Announcements annTotal={this.state.announcements}/>}/>
             <Route path="/lunch" render={() => <Lunch lunTotal={this.state.lunch}/>}/>
-
           </div>
         </Router>
     );

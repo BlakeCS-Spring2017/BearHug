@@ -4,18 +4,15 @@ import './Announcements.css';
 class Announcements extends Component {
   render() {
       if (this.props.annTotal != null) {
-
         function objectLength(obj) {
           var annLength = 0;
           for( var key in obj ) {
             if( obj.hasOwnProperty(key) ) {
               ++annLength;
-
             }
           }
           return annLength;
         };
-
         var lenAnn = objectLength(this.props.annTotal);
         var annArray = [];
         var keys = Object.keys(this.props.annTotal);
@@ -25,7 +22,6 @@ class Announcements extends Component {
         var annList = [];
         for (var j = 0; j < lenAnn; ++j) {
           annList.push(
-              
                 <div className="announcement" id={"announcement" + j}>
                   <span className="announcement-title">
                     <button role="button" data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample">
@@ -39,8 +35,6 @@ class Announcements extends Component {
                     </div>
                   </div>
                 </div>
-            
-
           );
         }
   }
