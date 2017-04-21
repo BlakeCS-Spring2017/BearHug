@@ -1,27 +1,43 @@
 
 #outsideDial{
 	position: absolute;
-	margin-top: 50px;
+	margin-top: 65px;
 	/* changes position*/
-	height: 400px;
-	width: 400px;
+	height: 375px;
+	width: 375px;
 	/*determines size of the svg box*/
 	fill: green;
 }
 
-#insideDial{
-	position: absolute;
-	margin-top: 50px;
-	/* changes position*/
-	height: 400px;
-	width: 400px;
-	/* determines size of the svg box */
-	fill: hotpink;
-	transform: rotate(0deg);
+#littlePath0{
+ fill: #7CB341;
 }
-/* maybe use offset to rotate svg */
 
-/* always make the height and width and positioning of both inside and outside dial the same!! */
+#littlePath1{
+ fill: #43A046;
+}
+
+#littlePath2{
+ fill: #009688;
+}
+
+#littlePath3{
+ fill: #00ACC1;
+}
+
+#littlePath4{
+ fill: #39A4DC;
+}
+
+#littlePath5{
+ fill: #2B66B1;
+}
+
+#littlePath6{
+ fill: #4555A5;
+}
+
+
 
 #timer {
 	position: absolute;
