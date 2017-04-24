@@ -39,8 +39,9 @@
 
 
 
-#timer {
+#time {
 	position: absolute;
-	margin-left: 50px;
-	z-index: 1;
+	margin-left: 150px;
+	margin-top: 230px;
+	font-size: x-large;
 }

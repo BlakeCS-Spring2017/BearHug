@@ -15,6 +15,7 @@ class Dial extends Component {
          this.state = {
             timeLeft : 0,
             classTime : 3600,
+            currentTime : "100",
         };
     };
 
@@ -36,8 +37,9 @@ class Dial extends Component {
             newState = 0;
         };
 
-        newState = newState + 0.05
+        newState += 0.05
         this.setState({timeLeft: newState, classTime: 3600});
+        this.setCurrentTime();
 
     };
 
@@ -50,6 +52,30 @@ class Dial extends Component {
         this.radians = percent * 2 * Math.PI;
         return this.radians;
     };
+
+    setCurrentTime() {
+        var time = new Date();
+        var hour = time.getHours();
+        var minute = time.getMinutes();
+        var second = time.getSeconds();
+        if (hour < 10) {
+            hour = "0" + hour
+        }
+        if (hour > 12) {
+            hour -= 12
+        }
+        if (minute < 10) {
+            minute = "0" + minute
+        }
+         if (second < 10) {
+            second = "0" + second
+        }
+
+        var now = hour + ":"+ minute + ":"+ second;
+        this.setState({currentTime : now})
+        console.log(now);
+
+    }
 
     render() {
 
@@ -117,8 +143,8 @@ class Dial extends Component {
             {wedgeArray}
         </svg>
 
-        <div id="timerBox">
-            <Timer id="timer" initialTime={3600}/>
+        <div id="time">
+            {this.state.currentTime}
         </div>
 
     </div>
