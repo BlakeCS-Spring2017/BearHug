@@ -2,6 +2,10 @@ body {
 	color: white;
 }
 
+.page {
+	margin-bottom: 75px;
+}
+
 .page-title {
 	color: white;
 	font-size: 40px;

@@ -39,7 +39,7 @@ class Announcements extends Component {
         }
   }
   return (
-    <div>
+    <div className="page">
       <div className="page-title">
         Announcements
       </div>
