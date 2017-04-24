@@ -3,16 +3,10 @@ body {
 }
 
 .page {
-	margin-bottom: 75px;
+	margin-bottom: 90px;
 }
 
-.page-title {
-	color: white;
-	font-size: 40px;
-	text-align: left;
-	margin-left: 15px;
-	margin-top: 15px;
-}
+
 
 .announcement {
 	margin: 10px;
@@ -24,26 +18,29 @@ body {
 
 }
 
-.announcement:nth-of-type(5n+1) {
-	background-color: #7CB341;
+.announcement:nth-of-type(6n+1) {
+	background-color: #3f51b5;
 }
 
-.announcement:nth-of-type(5n+2) {
-	background-color: #43A046;
+.announcement:nth-of-type(6n+2) {
+	background-color: #1565c0;
 }
 
-.announcement:nth-of-type(5n+3) {
+.announcement:nth-of-type(6n+3) {
+	background-color: #00acc1;
+}
+
+.announcement:nth-of-type(6n+4) {
 	background-color: #009688;
 }
 
-.announcement:nth-of-type(5n+4) {
-	background-color: #00ACC1;
+.announcement:nth-of-type(6n+5) {
+	background-color: #43A046;
 }
 
-.announcement:nth-of-type(5n+5) {
-	background-color: #39A4DC;
+.announcement:nth-of-type(6n+6) {
+	background-color: #7CB341;
 }
-
 
 .announcement-title {
 	width: 65%;
@@ -78,24 +75,28 @@ button {
 button:focus {outline:0;}
 
 
-.announcement:nth-of-type(5n+1) button {
-	background-color: #7CB341;
+.announcement:nth-of-type(6n+1) button {
+	background-color: #3f51b5;
 }
 
-.announcement:nth-of-type(5n+2) button {
-	background-color: #43A046;
+.announcement:nth-of-type(6n+2) button {
+	background-color: #1565c0;
 }
 
-.announcement:nth-of-type(5n+3) button {
+.announcement:nth-of-type(6n+3) button {
+	background-color: #00acc1;
+}
+
+.announcement:nth-of-type(6n+4) button {
 	background-color: #009688;
 }
 
-.announcement:nth-of-type(5n+4) button {
-	background-color: #00ACC1;
+.announcement:nth-of-type(6n+5) button {
+	background-color: #43A046;
 }
 
-.announcement:nth-of-type(5n+5) button {
-	background-color: #39A4DC;
+.announcement:nth-of-type(6n+6) button {
+	background-color: #7CB341;
 }
 
 .triangle.collapse {

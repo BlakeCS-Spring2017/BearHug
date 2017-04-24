@@ -42,7 +42,7 @@ class Announcements extends Component {
   return (
     <div className="page">
       <div className="Page-Title">
-        Announcements
+        Bulletin
       </div>
 
         
