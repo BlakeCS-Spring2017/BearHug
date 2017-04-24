@@ -30,12 +30,16 @@ class Lunch extends Component {
   }
     return (
       <div>
-        <div className="page-title">
+
+        <div className="Page-Title">
           Lunch
         </div>
         <div className="lunch-menu">
           {lunList}
         </div>
+
+
+
       </div>
     );
   }

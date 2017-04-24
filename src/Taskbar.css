@@ -9,6 +9,10 @@ ul {
     z-index: 1;
 }
 
+.Name {
+    font-size: 15px;
+    position: relative;
+}
 
 li {
     display: inline-block;
@@ -34,7 +38,7 @@ li a:hover {
 li a {
     display: block;
     text-align: center;
-    padding: 20px 24px;
+    padding: 20px 0px;
     margin: auto;
     font-size: 200%;
 }
@@ -69,6 +73,11 @@ ul {
     li a {
     font-size: 140%;
 	}
+    .Name {
+        font-size: 12px;
+        position: relative;
+        text-align: center;
+    }
 }
 /*This is for Iphone 6*/
 @media only screen and (max-width: 375px) and (min-width: 375px){
@@ -76,6 +85,11 @@ ul {
     li a {
     font-size: 130%;
 	}
+    .Name {
+        font-size: 10px;
+        position: relative;
+        text-align: center;
+    }
 }
 
 /*This is for Iphone 5*/
@@ -84,6 +98,11 @@ ul {
     li a {
     font-size: 120%;
 	}
+    .Name {
+        font-size: 10px;
+        position: relative;
+        text-align: center;
+    }
 
 }
 
@@ -93,4 +112,9 @@ ul {
     li a {
     font-size: 140%;
 	}
+    .Name {
+        font-size: 10px;
+        position: relative;
+        text-align: center;
+    }
 }

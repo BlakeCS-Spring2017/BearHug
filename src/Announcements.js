@@ -37,12 +37,14 @@ class Announcements extends Component {
                 </div>
           );
         }
+
   }
   return (
     <div className="page">
-      <div className="page-title">
+      <div className="Page-Title">
         Announcements
       </div>
+
         
       <div>
         {annList}
