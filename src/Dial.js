@@ -22,7 +22,7 @@ class Dial extends Component {
     componentWillMount() {
         this.moveDial = this.moveDial.bind(this);
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
-        this.intervalID = setInterval(this.moveDial, 1);
+        this.intervalID = setInterval(this.moveDial, 33);
         this.numberOfClasses = 7;
     };
 
@@ -37,7 +37,7 @@ class Dial extends Component {
             newState = 0;
         };
 
-        newState += 0.05
+        newState += 5
         this.setState({timeLeft: newState, classTime: 3600});
         this.setCurrentTime();
 
@@ -137,14 +137,51 @@ class Dial extends Component {
 
     <div>
       
-        <svg id="outsideDial" viewBox="-1 -1 2 2">
+        <svg id="dial" viewBox="-1 -1 2 2">
         // viewbox makes the graph with sin and cos possible
-            <path id="arc" d={arcPath}/>
+            
+            <path id="arc" d={arcPath} />
             {wedgeArray}
+            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+                2
+            </text>
+
+            <text x=".4" y="-.38" fontSize=".1px" textAnchor="middle" fill="white"> 
+                Asmb
+            </text>
+
+            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+                1
+            </text>
+
+            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+                3
+            </text>
+
+            <text x=".12" y="-.38" fontSize=".1px" textAnchor="middle" fill="white"> 
+                Lunch
+            </text>
+
+            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+                6
+            </text>
+
+            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+                7
+            </text>
+
         </svg>
 
         <div id="time">
             {this.state.currentTime}
+        </div>
+
+        <div id="nowNext">
+            <p id="now"> </p>
+            <p id="classNow"> </p>
+            <p id="next">  </p>
+            <p id="classNext"> </p>
+
         </div>
 
     </div>

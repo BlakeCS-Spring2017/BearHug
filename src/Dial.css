@@ -1,5 +1,5 @@
 
-#outsideDial{
+#dial{
 	position: absolute;
 	margin-top: 65px;
 	/* changes position*/
@@ -7,6 +7,7 @@
 	width: 375px;
 	/*determines size of the svg box*/
 	fill: green;
+	z-index: -1;
 }
 
 #littlePath0{
@@ -14,7 +15,8 @@
 }
 
 #littlePath1{
- fill: #43A046;
+ fill: #2c383e;
+ /* grey color */
 }
 
 #littlePath2{
@@ -26,7 +28,8 @@
 }
 
 #littlePath4{
- fill: #39A4DC;
+  fill: #2c383e;
+ /* grey color */
 }
 
 #littlePath5{
@@ -37,11 +40,36 @@
  fill: #4555A5;
 }
 
+/* color 2 #43A046 */
 
+/* color 5 #39A4DC */
 
 #time {
 	position: absolute;
 	margin-left: 150px;
 	margin-top: 230px;
 	font-size: x-large;
+}
+
+#name {
+	font-size: .3px;
+	fill: white;
+}
+
+#nowNext {
+	position: absolute;
+	margin-top: 400px;
+	margin-left: 100px;
+	font-size: xx-large;
+	font-family: verdana;
+	color: gray;
+}
+
+#now {
+	margin-left: 65px;
+	font-size: large;
+}
+
+#now {
+	margin-left: 65px;
 }
