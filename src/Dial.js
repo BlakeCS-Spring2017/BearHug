@@ -17,7 +17,7 @@ class Dial extends Component {
             classTime : 3900,
             currentDisplay : "100",
             currentTimeInSeconds: 100,
-            end: "9:05am",
+            end: "9:50am",
             currentEndMilli: 100,
         };
     };
@@ -116,12 +116,12 @@ class Dial extends Component {
         var rnHours = Math.floor(rnMinutes / 60);
         rnMinutes = rnMinutes % 60;
 
-         if (rnHours < 10) {
-            rnHours = "0" + rnHours
-        }
-        if (rnHours > 12) {
-            rnHours -= 12
-        }
+        //  if (rnHours < 10) {
+        //     rnHours = "0" + rnHours
+        // }
+        // if (rnHours > 12) {
+        //     rnHours -= 12
+        // }
         if (rnMinutes < 10) {
             rnMinutes = "0" + rnMinutes
         }
@@ -197,7 +197,9 @@ class Dial extends Component {
     <div>
 
         <div id="currentBlockName">
-            <p> Now: Block 2 </p>
+            <p id="now"> Now: 
+            <span id="block2"> Block 2 </span> 
+            </p>
         </div>
 
 
@@ -206,31 +208,31 @@ class Dial extends Component {
             
             <path id="arc" d={arcPath} />
             {wedgeArray}
-            <text x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text class="goodFont" x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white" > 
                 2
             </text>
 
-            <text x=".5 " y="-.08" fontSize=".1px" textAnchor="middle" fill="white"> 
-                Asmb
+            <text class="goodFont" x=".5 " y="-.08" fontSize=".1px" textAnchor="middle" fill="white"> 
+                Assem
             </text>
 
-            <text x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text class="goodFont" x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
                 1
             </text>
 
-            <text x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text class="goodFont" x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
                 3
             </text>
 
-            <text x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
+            <text class="goodFont" x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
                 Lunch
             </text>
 
-            <text x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text class="goodFont" x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
                 6
             </text>
 
-            <text x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text class="goodFont" x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
                 7
             </text>
 
@@ -248,8 +250,8 @@ class Dial extends Component {
 
         </div>
 
-        <div id="nextBlockName">
-            <p> Next: Assembly </p>
+        <div>
+            <p id="nextBlockName"> Next: Assembly </p>
         </div>
 
     </div>
