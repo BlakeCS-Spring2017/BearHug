@@ -26,7 +26,7 @@ class Announcements extends Component {
                   <span className="announcement-title">
                     <button role="button" data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample">
                       {annArray[j][0]}
-                      <span className={"triangle collapse" + j}></span>
+                    <span className={"triangle collapse" + j}></span>
                     </button>
                   </span>
                   <div className={"collapse collapse" + j}>
