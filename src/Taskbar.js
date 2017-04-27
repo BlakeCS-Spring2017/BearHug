@@ -7,7 +7,17 @@ import {
 class Taskbar extends Component {
   render() {
     return (
+
     <div>
+
+      <ul>
+        <li><a href="/">Dial</a></li>
+        <li><a href="/beartime">Beartime</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/lunch">Lunch</a></li>
+      </ul>
+
+
       <ul>
         <li><Link to="/">
           <span className="glyphicon glyphicon-home" aria-hidden="true"> 
@@ -41,6 +51,7 @@ class Taskbar extends Component {
      
 
     </div>
+
 
     );
   }
