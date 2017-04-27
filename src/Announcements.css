@@ -18,29 +18,14 @@ body {
 
 }
 
-.announcement:nth-of-type(6n+1) {
-	background-color: #3f51b5;
+.announcement:nth-of-type(2n+1) {
+	background-color: #4555A5;
 }
 
-.announcement:nth-of-type(6n+2) {
-	background-color: #1565c0;
+.announcement:nth-of-type(2n+2) {
+	background-color: #2B66B1;
 }
 
-.announcement:nth-of-type(6n+3) {
-	background-color: #00acc1;
-}
-
-.announcement:nth-of-type(6n+4) {
-	background-color: #009688;
-}
-
-.announcement:nth-of-type(6n+5) {
-	background-color: #43A046;
-}
-
-.announcement:nth-of-type(6n+6) {
-	background-color: #7CB341;
-}
 
 .announcement-title {
 	width: 65%;
@@ -72,32 +57,20 @@ button {
 	text-align: left;
 }
 
-button:focus {outline:0;}
-
-
-.announcement:nth-of-type(6n+1) button {
-	background-color: #3f51b5;
+button:focus {
+	outline:0;
 }
 
-.announcement:nth-of-type(6n+2) button {
-	background-color: #1565c0;
+
+
+.announcement:nth-of-type(2n+1) button {
+	background-color: #4555A5;
 }
 
-.announcement:nth-of-type(6n+3) button {
-	background-color: #00acc1;
+.announcement:nth-of-type(2n+2) button {
+	background-color: #2B66B1;
 }
 
-.announcement:nth-of-type(6n+4) button {
-	background-color: #009688;
-}
-
-.announcement:nth-of-type(6n+5) button {
-	background-color: #43A046;
-}
-
-.announcement:nth-of-type(6n+6) button {
-	background-color: #7CB341;
-}
 
 .triangle.collapse {
 	display: block;
