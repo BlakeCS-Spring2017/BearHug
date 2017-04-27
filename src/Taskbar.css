@@ -1,11 +1,10 @@
 
-/* This is for a basic computer screen and any other screen sizes than the ones listed below*/
+
 ul {
 	width: 100%;
     margin: 0 auto;
     padding: 0;
     list-style: none;
-    background-color: #151D21;
     z-index: 1;
 }
 
@@ -19,7 +18,6 @@ li {
     width: 25%;
     margin:0;
     padding:0;
-   
 }
 
 a {
@@ -27,12 +25,10 @@ a {
     padding: 0px 24px;
     margin: 0;
     background-color: #151D21;
-    border-left: 1px solid #151D21;
-    border-right: 1px solid #151D21;
 }
 
 li a:hover {
-    background-color: #0C1519;
+    background-color: #0E1317;
 }
 
 li a {
@@ -62,9 +58,10 @@ ul {
 }
 
 .glyphicon{
-	font-size:20px;
-	color:gray;
+	font-size: 20px;
+	color: white;
 }
+
 
 /*Here is where we determine size of screen for phones*/
 /*This is for Iphone 6+*/
@@ -118,3 +115,6 @@ ul {
         text-align: center;
     }
 }
+
+/* Write css here! */
+

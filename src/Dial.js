@@ -19,6 +19,7 @@ class Dial extends Component {
         };
     };
 
+
     componentWillMount() {
         this.moveDial = this.moveDial.bind(this);
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
@@ -135,38 +136,44 @@ class Dial extends Component {
        
     return (
 
+<div> 
     <div>
-      
+
+        <div id="currentBlockName">
+            <p> Now: Block 1 </p>
+        </div>
+
+
         <svg id="dial" viewBox="-1 -1 2 2">
         // viewbox makes the graph with sin and cos possible
             
             <path id="arc" d={arcPath} />
             {wedgeArray}
-            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white"> 
                 2
             </text>
 
-            <text x=".4" y="-.38" fontSize=".1px" textAnchor="middle" fill="white"> 
+            <text x=".5" y="-.06" fontSize=".1px" textAnchor="middle" fill="white"> 
                 Asmb
             </text>
 
-            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
                 1
             </text>
 
-            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
                 3
             </text>
 
-            <text x=".12" y="-.38" fontSize=".1px" textAnchor="middle" fill="white"> 
+            <text x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
                 Lunch
             </text>
 
-            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
                 6
             </text>
 
-            <text x=".12" y="-.38" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
                 7
             </text>
 
@@ -184,12 +191,16 @@ class Dial extends Component {
 
         </div>
 
+        <div id="nextBlockName">
+            <p> Next: Block 2 </p>
+        </div>
+
     </div>
+
+</div>
 
     );
   } 
-
-   
 
 }
 

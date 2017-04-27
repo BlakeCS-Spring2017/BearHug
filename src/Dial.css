@@ -1,12 +1,12 @@
 
 #dial{
 	position: absolute;
-	margin-top: 65px;
+	margin-top: 20px;
 	/* changes position*/
 	height: 375px;
 	width: 375px;
 	/*determines size of the svg box*/
-	fill: green;
+	fill: #7CB341;
 	z-index: -1;
 }
 
@@ -47,7 +47,7 @@
 #time {
 	position: absolute;
 	margin-left: 150px;
-	margin-top: 230px;
+	margin-top: 195px;
 	font-size: x-large;
 }
 
@@ -73,3 +73,19 @@
 #now {
 	margin-left: 65px;
 }
+
+#currentBlockName { 
+	font-size: 50px;
+	text-align: right;
+}
+
+#nextBlockName {
+	font-size: 50px;
+	text-align: left;
+	margin-top: 450px;
+	margin-left: 4px;
+}
+
+
+
+

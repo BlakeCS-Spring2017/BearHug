@@ -102,14 +102,29 @@ button:focus {outline:0;}
 .triangle.collapse {
 	display: block;
 	transform: rotate(0turn);
-
 }
 
 .triangle.collapse.in {
 	transform: rotate(.5turn);
 }
 
+.announcement.collapse {
+	display: block;
+	transform: rotate(0turn);
+}
+
+.announcement.collapse.in {
+	transform: rotate(1.5turn);
+}
+
+
 .description{
 	font-size: 15px;
 	padding: 5px;
 }
+#taskbar {
+	width: 1440px;
+	height: 100px;
+	bottom: 40px;
+}/* Write css here! */
+
