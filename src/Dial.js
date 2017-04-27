@@ -14,19 +14,19 @@ class Dial extends Component {
         // gap adds distance between the outside and inside circle
          this.state = {
             timeLeft : 0,
-            classSeconds : 3600,
+            classTime : 3900,
             currentDisplay : "100",
             currentTimeInSeconds: 100,
-            end: "12:45am",
+            end: "9:05am",
             currentEndMilli: 100,
         };
     };
 
 
     componentWillMount() {
-        this.moveDial = this.moveDial.bind(this);
+        this.setCurrentTime = this.setCurrentTime.bind(this);
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
-        this.intervalID = setInterval(this.moveDial, 33);
+        this.intervalID = setInterval(this.setCurrentTime, 33);
         this.numberOfClasses = 7;
     };
 
@@ -34,25 +34,9 @@ class Dial extends Component {
         clearInterval(this.intervalID);
     };
 
-    moveDial() {
-        var newState = this.state.timeLeft
-        if (this.state.timeLeft > 3599 && this.state.timeLeft < 3601) {
-            this.setState({timeLeft : 0});
-            newState = 0;
-        };
-
-
-        newState += 5
-        this.setState({timeLeft: newState, classSeconds: 3600});
-        this.setCurrentTime();
-        this.subtractTwoTimes();
-        this.setCurrentTimeInSeconds();
-
-
-    };
 
     calculateRadiansOutside() {
-        var percent = this.state.timeLeft / this.state.classSeconds;
+        var percent = this.state.timeLeft / this.state.classTime;
         this.rad = percent * 2 * Math.PI;
     };
 
@@ -63,27 +47,14 @@ class Dial extends Component {
 
 
     setCurrentTime() {
-        var time = new Date();
-        var hour = time.getHours();
-        var minute = time.getMinutes();
-        var second = time.getSeconds();
-        var millisecond = time.getMilliseconds();
+        var time = new Date(); 
+        var Nhours = time.getHours();
+        var Nminutes = time.getMinutes();
+        var Nseconds = time.getSeconds();
 
-        if (hour < 10) {
-            hour = "0" + hour
-        }
-        if (hour > 12) {
-            hour -= 12
-        }
-        if (minute < 10) {
-            minute = "0" + minute
-        }
-         if (second < 10) {
-            second = "0" + second
-        }
-
-        var now = hour + ":"+ minute + ":"+ second;
-      
+        Nminutes = Nminutes + (Nhours * 60);
+        Nseconds = Nseconds + (Nminutes * 60);
+    
 
         var ending = this.state.end;
         var dayHalf = ending.slice(ending.length - 2, ending.length);
@@ -95,20 +66,34 @@ class Dial extends Component {
 
         endHours = parseInt(endHours);
         endMinutes = parseInt(endMinutes);
+
+            if (dayHalf === "pm" && endHours != 12 ) {
+            endHours += 12
+        }
+
+        if (dayHalf === "am" && endHours === 12) {
+            endHours = 0
+        }
+
         endMinutes += endHours * 60;
         var endSeconds = endMinutes * 60;
         var endMilliseconds = endSeconds * 1000;
 
-
-        if (dayHalf === "pm" && hour != 12 ) {
-            endHours += 12
-        }
+        var CT = this.state.classTime;
+        var TL = endSeconds - Nseconds;
+        this.setState({timeLeft : CT - TL})
 
         this.setState({currentEndMilli : endMilliseconds});
+
+        this.subtractTwoTimes();
+        this.setCurrentTimeInMilli();
+
+        
+        
     };
 
 
-    setCurrentTimeInSeconds() {
+    setCurrentTimeInMilli() {
         var currentTime = new Date();
         var hours = currentTime.getHours();
         var minutes = currentTime.getMinutes();
@@ -119,27 +104,27 @@ class Dial extends Component {
         milliseconds += seconds * 1000;
 
 
-        this.setState({currentTimeInSeconds : milliseconds});
+        this.setState({currentTimeInMilli : milliseconds});
 
     };
 
     subtractTwoTimes() {
-        var r = this.state.currentEndMilli - this.state.currentTimeInSeconds
+        var r = this.state.currentEndMilli - this.state.currentTimeInMilli;
         var rnSeconds = Math.floor(r / 1000);
         var rnMinutes = Math.floor(rnSeconds / 60);
         rnSeconds = rnSeconds % 60;
         var rnHours = Math.floor(rnMinutes / 60);
         rnMinutes = rnMinutes % 60;
 
-        //  if (rnHours < 10) {
-        //     rnHours = "0" + rnHours
-        // }
-        // if (rnHours > 12) {
-        //     rnHours -= 12
-        // }
-        // if (rnMinutes < 10) {
-        //     rnMinutes = "0" + rnMinutes
-        // }
+         if (rnHours < 10) {
+            rnHours = "0" + rnHours
+        }
+        if (rnHours > 12) {
+            rnHours -= 12
+        }
+        if (rnMinutes < 10) {
+            rnMinutes = "0" + rnMinutes
+        }
          if (rnSeconds < 10) {
             rnSeconds = "0" + rnSeconds
         }
@@ -212,7 +197,7 @@ class Dial extends Component {
     <div>
 
         <div id="currentBlockName">
-            <p> Now: Block 1 </p>
+            <p> Now: Block 2 </p>
         </div>
 
 
@@ -264,7 +249,7 @@ class Dial extends Component {
         </div>
 
         <div id="nextBlockName">
-            <p> Next: Block 2 </p>
+            <p> Next: Assembly </p>
         </div>
 
     </div>
