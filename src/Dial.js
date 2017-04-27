@@ -73,8 +73,7 @@ class Dial extends Component {
 
         var now = hour + ":"+ minute + ":"+ second;
         this.setState({currentTime : now})
-        console.log(now);
-
+        
     }
 
     render() {
@@ -146,7 +145,7 @@ class Dial extends Component {
                 2
             </text>
 
-            <text x=".4" y="-.38" fontSize=".1px" textAnchor="middle" fill="white"> 
+            <text x=".4 " y="-.38" fontSize=".1px" textAnchor="middle" fill="white"> 
                 Asmb
             </text>
 
