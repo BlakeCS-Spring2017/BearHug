@@ -1,13 +1,14 @@
 
 #dial{
-	position: absolute;
-	margin-top: 20px;
-	/* changes position*/
-	height: 375px;
-	width: 375px;
-	/*determines size of the svg box*/
-	fill: #7CB341;
+	fill: #009688;
 	z-index: -1;
+}
+
+#wholeDial {
+	width: 90%;
+	display: block;
+	margin: auto;
+	margin-top: 10%;
 }
 
 #littlePath0{
@@ -44,11 +45,7 @@
 
 /* color 5 #39A4DC */
 
-#time {
-	position: absolute;
-	margin-left: 160px;
-	margin-top: 193px;
-	font-size: x-large;
+.time {
 	font-weight: lighter;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 }
@@ -58,6 +55,14 @@
 	font-size: 50px;
 	text-align: center;
 	margin-top: 450px;
+	color: #00ACC1;
+	font-weight: 200;
+  	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+}
+
+#next{
+	font-size: 50px;
+	text-align: center;
 	color: gray;
 	font-weight: 200;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
@@ -66,7 +71,7 @@
 #block2 {
 	text-align: center;
 	font-size: 50px;
-	color: #7CB341;
+	color: #009688;
 	font-weight: 200;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 
@@ -78,11 +83,13 @@
 	font-size: 50px;
 	font-weight: 200;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  }
 
-}
+
 
 .goodFont {
 	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+	fill: #2c383e;
 }
 
 

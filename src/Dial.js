@@ -17,7 +17,7 @@ class Dial extends Component {
             classTime : 3900,
             currentDisplay : "100",
             currentTimeInSeconds: 100,
-            end: "9:50am",
+            end: "9:30am",
             currentEndMilli: 100,
         };
     };
@@ -194,11 +194,11 @@ class Dial extends Component {
     return (
 
 <div> 
-    <div>
+    <div id="wholeDial">
 
         <div id="currentBlockName">
             <p id="now"> Now: 
-            <span id="block2"> Block 2 </span> 
+            <span id="block2"> Spanish </span> 
             </p>
         </div>
 
@@ -208,39 +208,41 @@ class Dial extends Component {
             
             <path id="arc" d={arcPath} />
             {wedgeArray}
-            <text class="goodFont" x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white" > 
+            <text className="goodFont" x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white"> 
                 2
             </text>
 
-            <text class="goodFont" x=".5 " y="-.08" fontSize=".1px" textAnchor="middle" fill="white"> 
+            <text className="goodFont" x=".5 " y="-.08" fontSize=".1px" textAnchor="middle" fill="white"> 
                 Assem
             </text>
 
-            <text class="goodFont" x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text className="goodFont" x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
                 1
             </text>
 
-            <text class="goodFont" x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text className="goodFont" x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
                 3
             </text>
 
-            <text class="goodFont" x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
+            <text className="goodFont" x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
                 Lunch
             </text>
 
-            <text class="goodFont" x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text className="goodFont" x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
                 6
             </text>
 
-            <text class="goodFont" x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
+            <text className="goodFont" x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
                 7
             </text>
-
+            
+            <text className="time" x="-.23" y=".07" fontSize="0.2px" fill="white">
+                {this.state.currentDisplay}
+            </text>
+        
         </svg>
 
-        <div id="time">
-            {this.state.currentDisplay}
-        </div>
+       
 
         <div id="nowNext">
             <p id="now"> </p>
@@ -251,7 +253,9 @@ class Dial extends Component {
         </div>
 
         <div>
-            <p id="nextBlockName"> Next: Assembly </p>
+            <p id="next"> Next: 
+            <span id="nextBlockName"> Physics </span>
+            </p>
         </div>
 
     </div>
