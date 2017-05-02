@@ -14,15 +14,19 @@ class Dial extends Component {
         // gap adds distance between the outside and inside circle
          this.state = {
             timeLeft : 0,
-            classTime : 3600,
-            currentTime : "100",
+            classTime : 3900,
+            currentDisplay : "100",
+            currentTimeInSeconds: 100,
+            end: "9:30am",
+            currentEndMilli: 100,
         };
     };
 
+
     componentWillMount() {
-        this.moveDial = this.moveDial.bind(this);
+        this.setCurrentTime = this.setCurrentTime.bind(this);
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
-        this.intervalID = setInterval(this.moveDial, 1);
+        this.intervalID = setInterval(this.setCurrentTime, 33);
         this.numberOfClasses = 7;
     };
 
@@ -30,18 +34,6 @@ class Dial extends Component {
         clearInterval(this.intervalID);
     };
 
-    moveDial() {
-        var newState = this.state.timeLeft
-        if (this.state.timeLeft > 3599 && this.state.timeLeft < 3601) {
-            this.setState({timeLeft : 0});
-            newState = 0;
-        };
-
-        newState += 0.05
-        this.setState({timeLeft: newState, classTime: 3600});
-        this.setCurrentTime();
-
-    };
 
     calculateRadiansOutside() {
         var percent = this.state.timeLeft / this.state.classTime;
@@ -53,28 +45,94 @@ class Dial extends Component {
         return this.radians;
     };
 
+
     setCurrentTime() {
-        var time = new Date();
-        var hour = time.getHours();
-        var minute = time.getMinutes();
-        var second = time.getSeconds();
-        if (hour < 10) {
-            hour = "0" + hour
-        }
-        if (hour > 12) {
-            hour -= 12
-        }
-        if (minute < 10) {
-            minute = "0" + minute
-        }
-         if (second < 10) {
-            second = "0" + second
+        var time = new Date(); 
+        var Nhours = time.getHours();
+        var Nminutes = time.getMinutes();
+        var Nseconds = time.getSeconds();
+
+        Nminutes = Nminutes + (Nhours * 60);
+        Nseconds = Nseconds + (Nminutes * 60);
+    
+
+        var ending = this.state.end;
+        var dayHalf = ending.slice(ending.length - 2, ending.length);
+        var ending = ending.slice(0, ending.length - 2);
+        var pos = ending.indexOf(":");
+        var endHours = ending.slice(0, pos);
+
+        var endMinutes = ending.slice(pos + 1,ending.length);
+
+        endHours = parseInt(endHours);
+        endMinutes = parseInt(endMinutes);
+
+            if (dayHalf === "pm" && endHours != 12 ) {
+            endHours += 12
         }
 
-        var now = hour + ":"+ minute + ":"+ second;
-        this.setState({currentTime : now})
-        console.log(now);
+        if (dayHalf === "am" && endHours === 12) {
+            endHours = 0
+        }
 
+        endMinutes += endHours * 60;
+        var endSeconds = endMinutes * 60;
+        var endMilliseconds = endSeconds * 1000;
+
+        var CT = this.state.classTime;
+        var TL = endSeconds - Nseconds;
+        this.setState({timeLeft : CT - TL})
+
+        this.setState({currentEndMilli : endMilliseconds});
+
+        this.subtractTwoTimes();
+        this.setCurrentTimeInMilli();
+
+        
+        
+    };
+
+
+    setCurrentTimeInMilli() {
+        var currentTime = new Date();
+        var hours = currentTime.getHours();
+        var minutes = currentTime.getMinutes();
+        var seconds = currentTime.getSeconds();
+        var milliseconds = currentTime.getMilliseconds();
+        minutes += hours * 60;
+        seconds += minutes * 60;
+        milliseconds += seconds * 1000;
+
+
+        this.setState({currentTimeInMilli : milliseconds});
+
+    };
+
+    subtractTwoTimes() {
+        var r = this.state.currentEndMilli - this.state.currentTimeInMilli;
+        var rnSeconds = Math.floor(r / 1000);
+        var rnMinutes = Math.floor(rnSeconds / 60);
+        rnSeconds = rnSeconds % 60;
+        var rnHours = Math.floor(rnMinutes / 60);
+        rnMinutes = rnMinutes % 60;
+
+        //  if (rnHours < 10) {
+        //     rnHours = "0" + rnHours
+        // }
+        // if (rnHours > 12) {
+        //     rnHours -= 12
+        // }
+        if (rnMinutes < 10) {
+            rnMinutes = "0" + rnMinutes
+        }
+         if (rnSeconds < 10) {
+            rnSeconds = "0" + rnSeconds
+        }
+
+        var rn = rnMinutes + ":"+ rnSeconds;
+
+
+        this.setState({currentDisplay : rn}); 
     }
 
     render() {
@@ -135,26 +193,79 @@ class Dial extends Component {
        
     return (
 
-    <div>
-      
-        <svg id="outsideDial" viewBox="-1 -1 2 2">
+<div> 
+    <div id="wholeDial">
+
+        <div id="currentBlockName">
+            <p id="now"> Now: 
+            <span id="block2"> Spanish </span> 
+            </p>
+        </div>
+
+
+        <svg id="dial" viewBox="-1 -1 2 2">
         // viewbox makes the graph with sin and cos possible
-            <path id="arc" d={arcPath}/>
+            
+            <path id="arc" d={arcPath} />
             {wedgeArray}
+            <text className="goodFont" x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white"> 
+                2
+            </text>
+
+            <text className="goodFont" x=".5 " y="-.08" fontSize=".1px" textAnchor="middle" fill="white"> 
+                Assem
+            </text>
+
+            <text className="goodFont" x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
+                1
+            </text>
+
+            <text className="goodFont" x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
+                3
+            </text>
+
+            <text className="goodFont" x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
+                Lunch
+            </text>
+
+            <text className="goodFont" x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
+                6
+            </text>
+
+            <text className="goodFont" x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
+                7
+            </text>
+            
+            <text className="time" x="-.23" y=".07" fontSize="0.2px" fill="white">
+                {this.state.currentDisplay}
+            </text>
+        
         </svg>
 
-        <div id="time">
-            {this.state.currentTime}
+       
+
+        <div id="nowNext">
+            <p id="now"> </p>
+            <p id="classNow"> </p>
+            <p id="next">  </p>
+            <p id="classNext"> </p>
+
+        </div>
+
+        <div>
+            <p id="next"> Next: 
+            <span id="nextBlockName"> Physics </span>
+            </p>
         </div>
 
     </div>
 
+</div>
+
     );
-  } 
+  }; 
 
-   
-
-}
+};
 
 
 export default Dial;

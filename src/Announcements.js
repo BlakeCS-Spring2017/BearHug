@@ -40,7 +40,6 @@ class Announcements extends Component {
             }
           return annLength;
         };
-        //if this annoucnemet is in localStorage, then add class to it
         var lenAnn = objectLength(this.props.annTotal);
         var annArray = [];
         var keys = Object.keys(this.props.annTotal);
@@ -55,8 +54,8 @@ class Announcements extends Component {
                   <div className={"unread" + (JSON.parse(localStorage.an).includes(annArray[j][0]) ? " readClass" : "")}></div>
                     <button role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
                       {annArray[j][1]}
-                      <span className={"triangle collapse" + j}></span>
                     </button>
+                  <span className={"triangle collapse" + j}></span>
                   </span>
                   <div className={"collapse collapse" + j}>
                     <div className="description">

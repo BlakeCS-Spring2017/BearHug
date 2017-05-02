@@ -11,3 +11,11 @@ h2 {
 	border-radius: 7px;
 	font-size: 20px;
 }
+
+#taskbar {
+	width: 1440px;
+	height: 100px;
+	background-color: black;
+	bottom: 40px;
+}
+

@@ -3,7 +3,7 @@ body {
 }
 
 .page {
-	margin-bottom: 75px;
+	margin-bottom: 90px;
 }
 
 .readClass {
@@ -29,24 +29,12 @@ body {
 	font-weight: lighter;
 }
 
-.announcement:nth-of-type(5n+1) {
-	background-color: #7CB341;
+.announcement:nth-of-type(2n+1) {
+	background-color: #4555A5;
 }
 
-.announcement:nth-of-type(5n+2) {
-	background-color: #43A046;
-}
-
-.announcement:nth-of-type(5n+3) {
-	background-color: #009688;
-}
-
-.announcement:nth-of-type(5n+4) {
-	background-color: #00ACC1;
-}
-
-.announcement:nth-of-type(5n+5) {
-	background-color: #39A4DC;
+.announcement:nth-of-type(2n+2) {
+	background-color: #2B66B1;
 }
 
 
@@ -80,44 +68,44 @@ button {
 	text-align: left;
 }
 
-button:focus {outline:0;}
-
-
-.announcement:nth-of-type(5n+1) button {
-	background-color: #7CB341;
+button:focus {
+	outline:0;
 }
 
-.announcement:nth-of-type(5n+2) button {
-	background-color: #43A046;
+.announcement:nth-of-type(2n+1) button {
+	background-color: #4555A5;
 }
 
-.announcement:nth-of-type(5n+3) button {
-	background-color: #009688;
+.announcement:nth-of-type(2n+2) button {
+	background-color: #2B66B1;
 }
 
-.announcement:nth-of-type(5n+4) button {
-	background-color: #00ACC1;
-}
-
-.announcement:nth-of-type(5n+5) button {
-	background-color: #39A4DC;
-}
 
 .triangle.collapse {
 	display: block;
 	transform: rotate(0turn);
-
 }
 
 .triangle.collapse.in {
 	transform: rotate(.5turn);
 }
 
-.announcemnet.collapse {
-	margin-bottom: 200px;
-	margin-top: 5px;
+.announcement.collapse {
+	display: block;
+	transform: rotate(0turn);
 }
+
+.announcement.collapse.in {
+	transform: rotate(1.5turn);
+}
+
 .description{
 	font-size: 15px;
 	padding: 5px;
 }
+#taskbar {
+	width: 1440px;
+	height: 100px;
+	bottom: 40px;
+}
+
