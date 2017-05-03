@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Lunch.css';
 
+var colors = ["#3f51b5", "#1565c0", "#00acc1", "#009688", "#43A046", "#7CB341"]
+var lunColor = colors[Math.floor(Math.random() * colors.length)];
+
 class Lunch extends Component {
   render() {
     if (this.props.lunTotal != null){
@@ -34,15 +37,15 @@ class Lunch extends Component {
         <div className="Page-Title">
           Lunch
         </div>
-        <div className="lunch-menu">
+        <div className="lunch-menu" style={{backgroundColor: lunColor}}>
           {lunList}
         </div>
-
-
+		
 
       </div>
     );
   }
 }
+
 
 export default Lunch;
