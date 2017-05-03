@@ -6,7 +6,7 @@ import Lunch from './Lunch';
 import Taskbar from './Taskbar';
 import Beartime from './Beartime';
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Route,
 } from 'react-router-dom'
 import * as firebase from 'firebase';

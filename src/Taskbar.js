@@ -6,6 +6,7 @@ import {
 
 class Taskbar extends Component {
   render() {
+    console.log(window.location)
     return (
 
     <div>
@@ -19,28 +20,28 @@ class Taskbar extends Component {
 
 
       <ul>
-        <li><Link to="/">
+        <li><Link to="/" className={(window.location.hash === "#/") ? "active" : ""}>
           <span className="glyphicon glyphicon-home" aria-hidden="true"> 
             <div className="Name">
               Home 
             </div> 
           </span>
         </Link></li>
-        <li><Link to="/beartime">
+        <li><Link to="/beartime" className={(window.location.hash === "#/beartime") ? "active" : ""}>
           <span className="glyphicon glyphicon-time" aria-hidden="true"> 
             <div className="Name">
               BearTime 
             </div> 
           </span>
         </Link></li>
-        <li><Link to="/announcements">
+        <li><Link to="/announcements" className={(window.location.hash === "#/announcements") ? "active" : ""}>
           <span className="glyphicon glyphicon-bullhorn" aria-hidden="true">
             <div className="Name">
               Bulletin
             </div> 
           </span>
         </Link></li>
-        <li><Link to="/lunch">
+        <li><Link to="/lunch" className={(window.location.hash === "#/lunch") ? "active" : ""}>
           <span className="glyphicon glyphicon-apple" aria-hidden="true">
             <div className="Name">
               Lunch
