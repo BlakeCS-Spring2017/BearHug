@@ -13,7 +13,11 @@ class Announcements extends Component {
       } else {
         storedAnnouncements = JSON.parse(localStorage.an)
       }
-      this.state = {readAnnouncements: storedAnnouncements}
+      this.state = {
+        readAnnouncements: storedAnnouncements,
+        tri: []
+      }
+
   }
   buttonClick(e){
     if (!JSON.parse(localStorage.an).includes(e.currentTarget.id)){
@@ -28,6 +32,16 @@ class Announcements extends Component {
       console.log(localStorage.an)
     }
     this.forceUpdate();
+
+    if (this.state.tri.includes(e.currentTarget.id)) {
+      var index = this.state.tri.indexOf(e.currentTarget.id);
+      if (index > -1) {
+        this.state.tri.splice(index, 1)
+      }
+    }
+    else {
+      this.state.tri.push(e.currentTarget.id);
+    }
   }
   render() {
       if (this.props.annTotal != null) {
@@ -54,8 +68,8 @@ class Announcements extends Component {
                   <div className={"unread" + (JSON.parse(localStorage.an).includes(annArray[j][0]) ? " readClass" : "")}></div>
                     <button role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
                       {annArray[j][1]}
+                      <span className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : "")}></span>
                     </button>
-                  <span className={"triangle collapse" + j}></span>
                   </span>
                   <div className={"collapse collapse" + j}>
                     <div className="description">
@@ -72,8 +86,6 @@ class Announcements extends Component {
       <div className="Page-Title">
         Bulletin
       </div>
-
-        
       <div>
         {annList}
       </div>
@@ -82,4 +94,7 @@ class Announcements extends Component {
   }
 }
 
+
 export default Announcements;
+
+

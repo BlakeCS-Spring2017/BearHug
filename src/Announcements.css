@@ -41,6 +41,7 @@ body {
 	background-color: #00acc1;
 }
 
+
 .announcement:nth-of-type(6n+4) {
 	background-color: #009688;
 }
@@ -53,28 +54,33 @@ body {
 	background-color: #7CB341;
 }
 
-.announcement-title {
-	width: 65%;
+.announcement:nth-of-type(6n+3) {
+	background-color: #00acc1;
+}
+
+.announcement:nth-of-type(6n+4) {
+	background-color: #009688;
+}
+
+.announcement:nth-of-type(6n+5) {
+	background-color: #43A046;
+}
+
+.announcement:nth-of-type(6n+6) {
+	background-color: #7CB341;
 }
 
 
-.triangle {
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;  
-    border-top: 20px solid #2C383E;
-    float: right;
-}
 
+.glyphicon.glyphicon-chevron-down {
+	float: right;
+	color: #2c383e;
+	font-size: 30px;
+	align-self: center;
+	position: relative;
+	display: block;
+	text-align: center;
 
-.triangle-up {
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;  
-    border-bottom: 20px solid #2C383E;
-    float: right;
 }
 
 button {
@@ -83,9 +89,7 @@ button {
 	text-align: left;
 }
 
-button:focus {
-	outline:0;
-}
+button:focus {outline:0;}
 
 
 .announcement:nth-of-type(6n+1) button {
@@ -95,6 +99,15 @@ button:focus {
 .announcement:nth-of-type(6n+2) button {
 	background-color: #1565c0;
 }
+
+.announcement:nth-of-type(6n+1) button {
+	background-color: #3f51b5;
+}
+
+.announcement:nth-of-type(6n+2) button {
+	background-color: #1565c0;
+}
+
 
 .announcement:nth-of-type(6n+3) button {
 	background-color: #00acc1;
@@ -112,15 +125,9 @@ button:focus {
 	background-color: #7CB341;
 }
 
-.triangle.collapse {
-	display: block;
-	transform: rotate(0turn);
-}
-
-.triangle.collapse.in {
+.flipClass {
 	transform: rotate(.5turn);
 }
-
 .announcement.collapse {
 	display: block;
 	transform: rotate(0turn);
@@ -133,10 +140,11 @@ button:focus {
 .description{
 	font-size: 15px;
 	padding: 5px;
+	z-index: -1;
 }
+
 #taskbar {
 	width: 1440px;
 	height: 100px;
 	bottom: 40px;
 }
-
