@@ -19,6 +19,8 @@ li {
     width: 25%;
     margin:0;
     padding:0;
+    border-left: solid #151D21 light;
+    border-right: solid #151D21 light;
 }
 
 a {

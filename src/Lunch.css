@@ -2,6 +2,15 @@ h2 {
 	color: white;
 }
 
+@keyframes fadeIn {
+  from {
+
+
+body {
+	animation-duration: .25s;
+    animation-name: fadein;
+}	
+
 .lunch-menu {
 	text-align: left;
 	color: white;
@@ -10,11 +19,3 @@ h2 {
 	border-radius: 7px;
 	font-size: 20px;
 }
-
-#taskbar {
-	width: 1440px;
-	height: 100px;
-	background-color: black;
-	bottom: 40px;
-}
-

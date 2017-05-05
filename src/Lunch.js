@@ -1,10 +1,22 @@
 import React, { Component } from 'react';
 import './Lunch.css';
 
-var colors = ["#3f51b5", "#1565c0", "#00acc1", "#009688", "#43A046", "#7CB341"]
-var lunColor = colors[Math.floor(Math.random() * colors.length)];
+
+
 
 class Lunch extends Component {
+  componentWillMount(){
+	  var colors = ["#3f51b5", "#1565c0", "#00acc1", "#009688", "#43A046", "#7CB341"]
+	  var lunColor = colors[Math.floor(Math.random() * colors.length)];
+	  this.randColor = lunColor
+  
+  }
+  
+  componentDidMount() {
+	
+	}
+	
+  
   render() {
     if (this.props.lunTotal != null){
     function objectLength(obj) {
@@ -37,7 +49,7 @@ class Lunch extends Component {
         <div className="Page-Title">
           Lunch
         </div>
-        <div className="lunch-menu" style={{backgroundColor: lunColor}}>
+        <div className="lunch-menu" style={{backgroundColor: this.randColor}}>
           {lunList}
         </div>
 		
