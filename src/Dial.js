@@ -79,6 +79,7 @@ class Dial extends Component {
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
         this.intervalID = setInterval(this.runDial, 33);
         this.state.numberOfClasses = 7;
+
     };
 
     componentWillUnmount() {
@@ -209,7 +210,6 @@ class Dial extends Component {
         seconds += minutes * 60;
         milliseconds += seconds * 1000;
 
-
         this.setState({currentTimeInMilli : milliseconds});
 
     };
@@ -306,7 +306,7 @@ class Dial extends Component {
 
         <div id="currentBlockName">
             <p id="now"> Now: 
-            <span id="block2"> {this.state.currentBlock} </span> 
+            <span id="nowClass"> {this.state.currentBlock} </span> 
             </p>
         </div>
 
@@ -364,7 +364,7 @@ class Dial extends Component {
 
         <div>
             <p id="next"> Next: 
-            <span id="nextBlockName"> {this.state.nextBlock} </span>
+            <span id="nextClass"> {this.state.nextBlock} </span>
             </p>
         </div>
 
