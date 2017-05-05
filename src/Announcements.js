@@ -62,7 +62,7 @@ class Announcements extends Component {
                   <div className={"unread" + (JSON.parse(localStorage.an).includes(annArray[j][0]) ? " readClass" : "")}></div>
                     <button role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
                       {annArray[j][1]}
-                      <span className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : "")}></span>
+                      <span className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : " flipdownClass")}></span>
                     </button>
                   </span>
                   <div className={"collapse collapse" + j}>
