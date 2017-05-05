@@ -12,370 +12,73 @@ class Dial extends Component {
         this.gap = .95;
         // thickness and sthickness determine width of arc
         // gap adds distance between the outside and inside circle
+
          this.state = {
             timeLeft : 0,
             classTime : 3900,
             currentDisplay : "100",
             currentTimeInSeconds: 100,
-            end: "11:05am",
+            end: "1:00pm",
             currentEndMilli: 100,
+            numberOfClasses: 7,
+            currentBlock: 1,
+            nextBlock: 1,
         };
 
-        this.days = {
-           monday: [
-            {
-              "name": "Advisory",
-              "start": "8:00am",
-              "end": "8:05am",
-              "duration": 5
-            },
-            {
-              "number": 1,
-              "start": "8:10am",
-              "end": "8:55am",
-              "duration": 45
-            },
-            {
-              "number": 2,
-              "start": "9:00am",
-              "end": "9:45am",
-              "duration": 45
-            },
-            {
-              "name": "Tutorial",
-              "start": "9:50am",
-              "end": "10:15am",
-              "duration": 25
-            },
-            {
-              "number": 3,
-              "start": "10:20am",
-              "end": "11:05am",
-              "duration": 45
-            },
-            {
-              "number": 4,
-              "lunch": 2,
-              "start": "11:10am",
-              "end": "11:55am",
-              "duration": 45
-            },
-            {
-              "name": "Lunch",
-              "lunch": 1,
-              "start": "11:10am",
-              "end": "11:40am",
-              "duration": 30
-            },
-            {
-              "number": 4,
-              "lunch": 1,
-              "start": "11:45am",
-              "end": "12:30pm",
-              "duration": 45
-            },
-            {
-              "name": "Lunch",
-              "lunch": 2,
-              "start": "12:00pm",
-              "end": "12:30pm",
-              "duration": 30
-            },
-            {
-              "number": 5,
-              "start": "12:35pm",
-              "end": "1:20pm",
-              "duration": 45
-            },
-            {
-              "number": 6,
-              "start": "1:25pm",
-              "end": "2:10pm",
-              "duration": 45
-            },
-            {
-              "number": 7,
-              "start": "2:15pm",
-              "end": "3:00pm",
-              "duration": 45
-            }
-          ],
+        this.monday = [
+        	{"duration":45, "end":"8:55am", "number":1, "start":"8:10am"},
+        	{"duration":45, "end":"9:45am", "number":2, "start":"9:00am"},
+        	{"duration":30, "end":"10:15am", "number":"Tut", "start":"9:45am"},
+        	{"duration":45, "end":"11:05am", "number":3, "start":"10:20am"},
+        	{"duration":45, "end":"12:30pm", "number":4, "start":"11:10am"},
+        	{"duration":45, "end":"12:35", "number":5, "start":"1:20pm"},
+        	{"duration":45, "end":"2:10pm", "number":6, "start":"1:25pm"},
+        	{"duration":45, "end":"3:00pm", "number":7, "start":"2:15pm"}
+        ];
+        this.tuesday = [
+        	{"duration":65, "end":"9:05am", "number":1, "start":"8:00am"},
+        	{"duration":40, "end":"9:50am", "number":"Asmb", "start":"9:10am"},
+        	{"duration":65, "end":"11:00am", "number":4, "start":"9:55am"},
+        	{"duration":95, "end":"12:40pm", "number":5, "start":"11:05am"},
+        	{"duration":65, "end":"1:50pm", "number":7, "start":"12:45pm"},
+        	{"duration":65, "end":"3:00pm", "number":6, "start":"1:55pm"},
+        ];
+        this.wednesday = [
+        	{"duration":65, "end":"9:35am", "number":3, "start":"8:30am"},
+        	{"duration":35, "end":"10:15am", "number":"Adv.", "start":"9:40am"},
+        	{"duration":65, "end":"11:25am", "number":2, "start":"10:20am"},
+        	{"duration":100, "end":"1:10pm", "number":4, "start":"11:30am"},
+        	{"duration":65, "end":"1:50pm", "number":"TASC", "start":"1:15pm"},
+        	{"duration":65, "end":"3:00pm", "number":5, "start":"1:55pm"},
 
-          tuesday: [
-            {
-              "number": 1,
-              "start": "8:00am",
-              "end": "9:05am",
-              "duration": 65
-            },
-            {
-              "name": "Assembly",
-              "start": "9:10am",
-              "end": "9:40am",
-              "duration": 30
-            },
-            {
-              "name": "Advisory",
-              "start": "9:45am",
-              "end": "9:50am",
-              "duration": 5
-            },
-            {
-              "number": 4,
-              "start": "9:55am",
-              "end": "11:00am",
-              "duration": 65
-            },
-            {
-              "number": 5,
-              "lunch": 2,
-              "start": "11:05am",
-              "end": "12:10pm",
-              "duration": 65
-            },
-            {
-              "name": "Lunch",
-              "lunch": 1,
-              "start": "11:05am",
-              "end": "11:30am",
-              "duration": 25
-            },
-            {
-              "number": 5,
-              "lunch": 1,
-              "start": "11:35am",
-              "end": "12:40pm",
-              "duration": 65
-            },
-            {
-              "name": "Lunch",
-              "lunch": 2,
-              "start": "12:15pm",
-              "end": "12:40pm",
-              "duration": 25
-            },
-            {
-              "number": 7,
-              "start": "12:45pm",
-              "end": "1:50pm",
-              "duration": 65
-            },
-            {
-              "number": 6,
-              "start": "1:55pm",
-              "end": "3:00pm",
-              "duration": 65
-            }
-          ],
-          wednesday: [
-            {
-              "number": 3,
-              "start": "8:30am",
-              "end": "9:35am",
-              "duration": 65
-            },
-            {
-              "name": "Advisory",
-              "start": "9:40am",
-              "end": "10:15am",
-              "duration": 35
-            },
-            {
-              "number": 2,
-              "start": "10:20am",
-              "end": "11:25am",
-              "duration": 65
-            },
-            {
-              "number": 4,
-              "lunch": 2,
-              "start": "11:30am",
-              "end": "12:35pm",
-              "duration": 65
-            },
-            {
-              "name": "Lunch",
-              "lunch": 1,
-              "start": "11:30am",
-              "end": "12:00pm",
-              "duration": 30
-            },
-            {
-              "number": 4,
-              "lunch": 1,
-              "start": "12:05pm",
-              "end": "1:10pm",
-              "duration": 65
-            },
-            {
-              "name": "Lunch",
-              "lunch": 2,
-              "start": "12:40pm",
-              "end": "1:10pm",
-              "duration": 30
-            },
-            {
-              "name": "TASC",
-              "start": "1:15pm",
-              "end": "1:50pm",
-              "duration": 35
-            },
-            {
-              "number": 5,
-              "start": "1:55pm",
-              "end": "3:00pm",
-              "duration": 65
-            }
-          ],
-          thursday: [
-            {
-              "number": 2,
-              "start": "8:00am",
-              "end": "9:05am",
-              "duration": 65
-            },
-            {
-              "name": "Assembly",
-              "start": "9:10am",
-              "end": "9:40am",
-              "duration": 30
-            },
-            {
-              "name": "Advisory",
-              "start": "9:45am",
-              "end": "9:50am",
-              "duration": 5
-            },
-            {
-              "number": 1,
-              "start": "9:55am",
-              "end": "11:00am",
-              "duration": 65
-            },
-            {
-              "number": 3,
-              "lunch": 2,
-              "start": "11:05am",
-              "end": "12:10pm",
-              "duration": 65
-            },
-            {
-              "name": "Lunch",
-              "lunch": 1,
-              "start": "11:05am",
-              "end": "11:30am",
-              "duration": 25
-            },
-            {
-              "number": 3,
-              "lunch": 1,
-              "start": "11:35am",
-              "end": "12:40pm",
-              "duration": 65
-            },
-            {
-              "name": "Lunch",
-              "lunch": 2,
-              "start": "12:15pm",
-              "end": "12:40pm",
-              "duration": 25
-            },
-            {
-              "number": 6,
-              "start": "12:45pm",
-              "end": "1:50pm",
-              "duration": 65
-            },
-            {
-              "number": 7,
-              "start": "1:55pm",
-              "end": "3:00pm",
-              "duration": 65
-            }
-          ],
-          friday: [
-            {
-              "name": "Advisory",
-              "start": "8:30am",
-              "end": "8:35am",
-              "duration": 5
-            },
-            {
-              "number": 2,
-              "start": "8:40am",
-              "end": "9:25am",
-              "duration": 45
-            },
-            {
-              "number": 1,
-              "start": "9:30am",
-              "end": "10:15am",
-              "duration": 45
-            },
-            {
-              "number": 3,
-              "start": "10:20am",
-              "end": "11:05am",
-              "duration": 45
-            },
-            {
-              "number": 4,
-              "lunch": 2,
-              "start": "11:10am",
-              "end": "11:55am",
-              "duration": 45
-            },
-            {
-              "name": "Lunch",
-              "lunch": 1,
-              "start": "11:10am",
-              "end": "11:40am",
-              "duration": 30
-            },
-            {
-              "number": 4,
-              "lunch": 1,
-              "start": "11:45am",
-              "end": "12:30pm",
-              "duration": 45
-            },
-            {
-              "name": "Lunch",
-              "lunch": 2,
-              "start": "12:00pm",
-              "end": "12:30pm",
-              "duration": 30
-            },
-            {
-              "number": 5,
-              "start": "12:35pm",
-              "end": "1:20pm",
-              "duration": 45
-            },
-            {
-              "number": 7,
-              "start": "1:25pm",
-              "end": "2:10pm",
-              "duration": 45
-            },
-            {
-              "number": 6,
-              "start": "2:15pm",
-              "end": "3:00pm",
-              "duration": 45
-            }
-          ]
-        }
+        ];
+        this.thursday = [
+        	{"duration":65, "end":"9:05am", "number":2, "start":"8:00am"},
+        	{"duration":40, "end":"9:50am", "number":"Asmb", "start":"9:10am"},
+        	{"duration":65, "end":"11:00am", "number":1, "start":"9:55am"},
+        	{"duration":95, "end":"12:40pm", "number":3, "start":"11:05am"},
+        	{"duration":65, "end":"1:50pm", "number":6, "start":"12:45pm"},
+        	{"duration":65, "end":"3:00pm", "number":7, "start":"1:55pm"},
+        ];
+        this.friday = [
+        	{"duration":45, "end":"9:25am", "number":2, "start":"8:30am"}, 
+        	{"duration":45, "end":"10:15am", "number":1, "start":"9:30am"},
+        	{"duration":45, "end":"11:05am", "number":3, "start":"10:20am"},
+        	{"duration":80, "end":"12:30pm", "number":4, "start":"11:10am"},
+        	{"duration":45, "end":"1:20pm", "number":5, "start":"12:35pm"},
+        	{"duration":45, "end":"2:10pm", "number":7, "start":"1:25pm"},
+        	{"duration":45, "end":"3:00pm", "number":6, "start":"2:15pm"}
+    	]; 
+    	this.week = [this.monday, this.tuesday, this.wednesday, this.thursday, this.friday];
+    	this.noSchool;
     };
 
 
     componentWillMount() {
-        this.setCurrentTime = this.setCurrentTime.bind(this);
+        this.runDial = this.runDial.bind(this);
         this.calculateRadiansOutside = this.calculateRadiansOutside.bind(this);
-        this.intervalID = setInterval(this.setCurrentTime, 33);
-        this.numberOfClasses = 7;
-        var now = new Date();
-        this.dayOfWeek = now.getDay(); 
+        this.intervalID = setInterval(this.runDial, 33);
+        this.state.numberOfClasses = 7;
     };
 
     componentWillUnmount() {
@@ -393,18 +96,8 @@ class Dial extends Component {
         return this.radians;
     };
 
-
-    setCurrentTime() {
-        var time = new Date(); 
-        var Nhours = time.getHours();
-        var Nminutes = time.getMinutes();
-        var Nseconds = time.getSeconds();
-
-        Nminutes = Nminutes + (Nhours * 60);
-        Nseconds = Nseconds + (Nminutes * 60);
-    
-
-        var ending = this.state.end;
+    returnSecondsOf(timeString) {
+    	var ending = timeString;
         var dayHalf = ending.slice(ending.length - 2, ending.length);
         var ending = ending.slice(0, ending.length - 2);
         var pos = ending.indexOf(":");
@@ -425,16 +118,83 @@ class Dial extends Component {
 
         endMinutes += endHours * 60;
         var endSeconds = endMinutes * 60;
-        var endMilliseconds = endSeconds * 1000;
 
+        return endSeconds
+    }
+
+    runDial() {
+    	var time = new Date(); 
+        var Nhours = time.getHours();
+        var Nminutes = time.getMinutes();
+        var Nseconds = time.getSeconds();
+
+        Nminutes = Nminutes + (Nhours * 60);
+        Nseconds = Nseconds + (Nminutes * 60);
+
+    	var currentDay;
+    	var dayOfWeek = time.getDay();
+    	dayOfWeek -= 1;
+    	if (dayOfWeek > 4) {
+    		currentDay = this.noSchool;
+    	}
+    	else {
+    		currentDay = this.week[dayOfWeek];	
+    	}
+
+    	for (var i = 0; i < currentDay.length; i++) {
+    		var currentBlock = currentDay[i];
+			var timeString = currentBlock["end"];
+			var blockNow = "Block "+currentBlock["number"];
+			var blockNext;
+			var durationTime = currentBlock["duration"]*60;
+			if (i+1 < currentDay.length) {
+				blockNext = "Block "+currentDay[i+1]["number"];
+			}
+			else {
+				blockNext = "nothing"
+			}
+			var timeEnd = this.returnSecondsOf(timeString);
+			if (timeEnd > Nseconds) {
+				this.state.end = timeString
+				break
+			}
+    	};
+
+
+
+
+
+
+    	//
+
+
+
+        var endSeconds = this.returnSecondsOf(this.state.end);
+        var endMilliseconds = endSeconds * 1000
         var CT = this.state.classTime;
         var TL = endSeconds - Nseconds;
-        this.setState({timeLeft : CT - TL})
+        var updateTimeLeft;
+        if (TL > CT) {
+        	CT = 5*60
+        	TL = TL-CT
+        }
+        this.setState({timeLeft : CT - TL, 
+        	numberOfClasses: 
+        	currentDay.length, 
+        	currentBlock: blockNow, 
+        	nextBlock: blockNext, 
+        	classTime: durationTime,
+        	currentEndMilli : endMilliseconds
+        })
 
-        this.setState({currentEndMilli : endMilliseconds});
+
+
+
 
         this.subtractTwoTimes();
-        this.setCurrentTimeInMilli();  
+        this.setCurrentTimeInMilli();
+
+        
         
     };
 
@@ -460,7 +220,14 @@ class Dial extends Component {
         var rnMinutes = Math.floor(rnSeconds / 60);
         rnSeconds = rnSeconds % 60;
         var rnHours = Math.floor(rnMinutes / 60);
+        rnMinutes = rnMinutes % 60;
 
+        //  if (rnHours < 10) {
+        //     rnHours = "0" + rnHours
+        // }
+        // if (rnHours > 12) {
+        //     rnHours -= 12
+        // }
         if (rnMinutes < 10) {
             rnMinutes = "0" + rnMinutes
         }
@@ -476,11 +243,11 @@ class Dial extends Component {
 
     render() {
 
-        var wedgeRadians = this.percentToRadians(1 / this.numberOfClasses);
+        var wedgeRadians = this.percentToRadians(1 / this.state.numberOfClasses);
         var currentStartRadians = 0;
         var wedgeArray = [];
 
-        for (var i = 0; i < this.numberOfClasses; i++) {
+        for (var i = 0; i < this.state.numberOfClasses; i++) {
             var ipoint1x = Math.sin(currentStartRadians) * this.thickness * this.gap;
             var ipoint1y = -Math.cos(currentStartRadians) * this.thickness * this.gap;
             var ipoint2x = Math.sin(currentStartRadians + wedgeRadians) * this.thickness * this.gap;
@@ -502,12 +269,14 @@ class Dial extends Component {
             currentStartRadians += wedgeRadians
 
             wedgeArray.push(
-                <path id={"littlePath" + i} d={littlePath}/>
+                <path id={"littlePath" + i} d={littlePath}>
+
+                </path>
             );
         }
 
         this.calculateRadiansOutside()
-        
+       
 
         var point1x = 0;
         var point1y = -1;
@@ -537,7 +306,7 @@ class Dial extends Component {
 
         <div id="currentBlockName">
             <p id="now"> Now: 
-            <span id="block2"> Spanish </span> 
+            <span id="block2"> {this.state.currentBlock} </span> 
             </p>
         </div>
 
@@ -546,7 +315,9 @@ class Dial extends Component {
         // viewbox makes the graph with sin and cos possible
             
             <path id="arc" d={arcPath} />
+
             {wedgeArray}
+
             <text className="goodFont" x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white"> 
                 2
             </text>
@@ -593,7 +364,7 @@ class Dial extends Component {
 
         <div>
             <p id="next"> Next: 
-            <span id="nextBlockName"> Physics </span>
+            <span id="nextBlockName"> {this.state.nextBlock} </span>
             </p>
         </div>
 
@@ -605,6 +376,23 @@ class Dial extends Component {
   }; 
 
 };
+
+
+
+
+var special = {"2017-02-15":[
+
+{"duration":65,"end":"9:35am","number":3,"start":"8:30am"},
+{"duration":35,"end":"10:15am","name":"Lip Sync Battle","start":"9:40am"},
+{"duration":65,"end":"11:25am","number":2,"start":"10:20am"},
+{"duration":65,"end":"12:35pm","lunch":2,"number":4,"start":"11:30am"},
+{"duration":30,"end":"12:00pm","lunch":1,"name":"First Lunch","start":"11:30am"},
+{"duration":65,"end":"1:10pm","lunch":1,"number":4,"start":"12:05pm"},
+{"duration":30,"end":"1:10pm","lunch":2,"name":"Second Lunch","start":"12:40pm"},
+{"duration":35,"end":"1:50pm","name":"TASC","start":"1:15pm"},
+{"duration":65,"end":"3:00pm","number":5,"start":"1:55pm"}
+
+]}
 
 
 export default Dial;
