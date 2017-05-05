@@ -6,7 +6,6 @@ import {
 
 class Taskbar extends Component {
   render() {
-    console.log(window.location)
     return (
 
     <div>

@@ -21,15 +21,9 @@ class Announcements extends Component {
   }
   buttonClick(e){
     if (!JSON.parse(localStorage.an).includes(e.currentTarget.id)){
-      console.log(e.currentTarget.id)
-      // e.currentTarget.style.backgroundColor = "#151D21";
       this.state.readAnnouncements.push(e.currentTarget.id)
-      console.log(this.state.readAnnouncements)
       localStorage.an= JSON.stringify(this.state.readAnnouncements)
-      console.log(localStorage.an)
-      // this.setState({readAnnouncements: announcements})
     } else {
-      console.log(localStorage.an)
     }
     this.forceUpdate();
 
@@ -79,7 +73,6 @@ class Announcements extends Component {
                 </div>
           );
         }
-
   }
   return (
     <div className="page">
