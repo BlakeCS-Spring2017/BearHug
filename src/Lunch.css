@@ -1,12 +1,6 @@
 h2 {
 	color: white;
 }
-
-body {
-	animation-duration: .25s;
-    animation-name: fadein;
-}	
-
 .lunch-menu {
 	text-align: left;
 	color: white;
