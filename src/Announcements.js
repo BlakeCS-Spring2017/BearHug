@@ -56,7 +56,7 @@ class Announcements extends Component {
         }   
         var annList = [];
         for (var j = 0; j < lenAnn; ++j) {
-          annList.push(
+          annList.unshift(
                 <div className="announcement" id={"announcement" + j} >
                   <span className="announcement-title">
                   <div className={"unread" + (JSON.parse(localStorage.an).includes(annArray[j][0]) ? " readClass" : "")}></div>
