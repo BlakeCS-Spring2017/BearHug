@@ -52,10 +52,16 @@ class Announcements extends Component {
         var annArray = [];
         var keys = Object.keys(this.props.annTotal);
         for (var i = 0; i < lenAnn; i++) {
-          annArray.push(this.props.annTotal[keys[i]]);
-        }   
+          var currentAnnouncement = this.props.annTotal[keys[i]]
+          var time = new Date();
+          var d = new Date(currentAnnouncement[0]);
+          var expireDate = new Date(currentAnnouncement[3]);
+          if (expireDate >= time) {
+            annArray.push(this.props.annTotal[keys[i]]);
+          }
+        }
         var annList = [];
-        for (var j = 0; j < lenAnn; ++j) {
+        for (var j = 0; j < annArray.length; ++j) {
           annList.unshift(
                 <div className="announcement" id={"announcement" + j} >
                   <span className="announcement-title">
@@ -79,6 +85,7 @@ class Announcements extends Component {
       <div className="Page-Title">
         Bulletin
       </div>
+
       <div>
         {annList}
       </div>
