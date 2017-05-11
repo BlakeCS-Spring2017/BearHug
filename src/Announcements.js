@@ -54,7 +54,6 @@ class Announcements extends Component {
         for (var i = 0; i < lenAnn; i++) {
           var currentAnnouncement = this.props.annTotal[keys[i]]
           var time = new Date();
-          var d = new Date(currentAnnouncement[0]);
           var expireDate = new Date(currentAnnouncement[3]);
           if (expireDate >= time) {
             annArray.push(this.props.annTotal[keys[i]]);
