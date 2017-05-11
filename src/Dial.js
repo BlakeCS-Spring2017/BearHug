@@ -165,6 +165,9 @@ class Dial extends Component {
 			var durationTime = currentBlock["duration"] * 60;
 			if (i + 1 < currentDay.length) {
 				blockNext = "Block " + currentDay[i + 1]["number"];
+				if (currentDay[i+1]["number"] === "Asmb") {
+					blockNext = "Assembly"
+				}
 			}
 			else {
 				blockNext = "nothing"
@@ -187,7 +190,7 @@ class Dial extends Component {
         
         this.setState(
         	{timeLeft : CT - TL, 
-        	numberOfClasses: currentDay.length, 
+        	numberOfClasses: 7, 
         	currentBlock: blockNow, 
         	nextBlock: blockNext, 
         	classTime: durationTime,
@@ -243,7 +246,7 @@ class Dial extends Component {
             rnSeconds = "0" + rnSeconds
         }
 
-        if (rnHours == 0) {
+        if (rnHours === 0) {
             var rn = rnMinutes + ":"+ rnSeconds;
         }
         else {
@@ -291,6 +294,7 @@ class Dial extends Component {
         var textDistance = (this.thickness + this.sthickness) * 0.5;
         var textX = Math.sin(textRadians) * textDistance;
         var textY = -Math.cos(textRadians) * textDistance;
+
 
 
 
