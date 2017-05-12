@@ -4,8 +4,8 @@ import './Beartime.css';
 class Beartime extends Component {
   render() {
     return (
-      <div>
-      		<iframe src="https://beartime.blakeschool.org/" id="beartime"> </iframe>
+      <div id="iframeHeight">
+      	<iframe src="https://beartime.blakeschool.org/" id="beartime"> </iframe>
       </div>
     );
   }
