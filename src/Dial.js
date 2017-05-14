@@ -17,11 +17,11 @@ class Dial extends Component {
             classTime : 3900,
             currentDisplay : "100",
             currentTimeInSeconds: 100,
-            end: "1:00pm",
             currentEndMilli: 100,
             numberOfClasses: 7,
             currentBlock: 1,
             nextBlock: 1,
+            daySchedule: undefined, 
         };
 
         this.monday = [
@@ -137,8 +137,10 @@ class Dial extends Component {
     		currentDay = this.noSchool;
     	}
     	else {
-    		currentDay = this.week[dayOfWeek];	
+    		currentDay = this.week[dayOfWeek];
     	}
+
+        this.state.daySchedule = this.week[dayOfWeek]
 
     	for (var i = 0; i < currentDay.length; i++) {
     		var currentBlock = currentDay[i];
@@ -212,11 +214,11 @@ class Dial extends Component {
             rnSeconds = "0" + rnSeconds
         }
 
-        if (rnHours == 0) {
+        if (rnHours === 0) {
             var rn = rnMinutes + ":"+ rnSeconds;
         }
         else {
-            var rn = rnHours + ":" + rnMinutes + ":"+ rnSeconds;
+            rn = rnHours + ":" + rnMinutes + ":"+ rnSeconds;
         }
 
         this.setState({currentDisplay : rn}); 
@@ -246,30 +248,34 @@ class Dial extends Component {
                 iorientIn = "0 0";
             }
 
-        var littlePath = "M "+ipoint1x+" "+ipoint1y+" A" +this.thickness * this.gap+ +this.thickness * this.gap+ ", 0, "+iorientOut+" "+ipoint2x+" "+ipoint2y+" L "+ipoint3x+" "+ipoint3y+" A" +this.sthickness+ +this.sthickness+ ", 0, "+iorientIn+" "+ipoint4x+" "+ipoint4y+ " Z";
-            
-        currentStartRadians += wedgeRadians
+            var littlePath = "M "+ipoint1x+" "+ipoint1y+" A" +this.thickness * this.gap+ +this.thickness * this.gap+ ", 0, "+iorientOut+" "+ipoint2x+" "+ipoint2y+" L "+ipoint3x+" "+ipoint3y+" A" +this.sthickness+ +this.sthickness+ ", 0, "+iorientIn+" "+ipoint4x+" "+ipoint4y+ " Z";
 
-        wedgeArray.push(
-            <path id={"littlePath" + i} d={littlePath}>
+            var textRadians = (0.5 * wedgeRadians) + currentStartRadians;
+            var textDistance = (this.thickness + this.sthickness) * 0.48;
+            var textX = Math.sin(textRadians) * textDistance;
+            var textY = -Math.cos(textRadians) * textDistance +.1;
+            var wedgeLabel = "";
 
-            </path>
-        );
+            if (this.state.daySchedule) {
+              wedgeLabel = this.state.daySchedule[i].number.toString();  
+            } 
 
-        var textRadians = (0.5 * wedgeRadians) + currentStartRadians;
-        var textDistance = (this.thickness + this.sthickness) * 0.5;
-        var textX = Math.sin(textRadians) * textDistance;
-        var textY = -Math.cos(textRadians) * textDistance;
+            currentStartRadians += wedgeRadians
 
+            textArray.push(
+                <text id={"text" + i} className="goodFont" x={textX} y={textY} fontSize=".02em" textAnchor="middle"> 
+                {wedgeLabel}
+                </text>
+            );
 
+            wedgeArray.push(
+                <path id={"littlePath" + i} d={littlePath}>
+                </path>
+            );
 
-        textArray.push(
-            <text className="goodFont" x={textX} y={textY} fontSize=".3px" textAnchor="middle" > 
-            
-            </text>
-        );
         
-    }
+        
+        }
 
         this.calculateRadiansOutside()
        
@@ -315,34 +321,8 @@ class Dial extends Component {
 
             {wedgeArray}
 
-            <text className="goodFont" x=".22" y="-.37" fontSize=".3px" textAnchor="middle" fill="white"> 
-                2
-            </text>
+            {textArray}
 
-            <text className="goodFont" x=".5 " y="-.08" fontSize=".1px" textAnchor="middle" fill="white"> 
-                Assem
-            </text>
-
-            <text className="goodFont" x=".4" y=".45" fontSize=".3px" textAnchor="middle" fill="white"> 
-                1
-            </text>
-
-            <text className="goodFont" x="0" y=".63" fontSize=".3px" textAnchor="middle" fill="white"> 
-                3
-            </text>
-
-            <text className="goodFont" x="-.42" y=".35" fontSize=".1px" textAnchor="middle" fill="white"> 
-                Lunch
-            </text>
-
-            <text className="goodFont" x="-.52" y="0" fontSize=".3px" textAnchor="middle" fill="white"> 
-                6
-            </text>
-
-            <text className="goodFont" x="-.22" y="-.35" fontSize=".3px" textAnchor="middle" fill="white"> 
-                7
-            </text>
-            
             <text className="time" x="0" y=".07" fontSize="0.2px" textAnchor="middle" fill="white">
                 {this.state.currentDisplay}
             </text>
