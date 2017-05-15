@@ -22,12 +22,20 @@ class Dial extends Component {
             currentBlock: 1,
             nextBlock: 1,
             daySchedule: undefined, 
+            passing: false,
+            passingTime: 300, // These are slightly redundant but are used so not to confuse classTime and timeLeft
+            passingTimeLeft: 0, // ^
+
         };
 
+        this.test = [
+        	{"duration":45, "end":"11:05am", "number":1, "start":"9:20am"},
+        	{"duration":45, "end":"11:55am", "number":2, "start":"11:10am"}
+        ];
         this.monday = [
         	{"duration":45, "end":"8:55am", "number":1, "start":"8:10am"},
         	{"duration":45, "end":"9:45am", "number":2, "start":"9:00am"},
-        	{"duration":30, "end":"10:15am", "number":"Tut", "start":"9:45am"},
+        	{"duration":30, "end":"10:15am", "name":"Tut", "start":"9:45am"},
         	{"duration":45, "end":"11:05am", "number":3, "start":"10:20am"},
         	{"duration":45, "end":"12:30pm", "number":4, "start":"11:10am"},
         	{"duration":45, "end":"12:35", "number":5, "start":"1:20pm"},
@@ -36,7 +44,7 @@ class Dial extends Component {
         ];
         this.tuesday = [
         	{"duration":65, "end":"9:05am", "number":1, "start":"8:00am"},
-        	{"duration":40, "end":"9:50am", "number":"Asmb", "start":"9:10am"},
+        	{"duration":40, "end":"9:50am", "name":"Asmb", "start":"9:10am"},
         	{"duration":65, "end":"11:00am", "number":4, "start":"9:55am"},
         	{"duration":95, "end":"12:40pm", "number":5, "start":"11:05am"},
         	{"duration":65, "end":"1:50pm", "number":7, "start":"12:45pm"},
@@ -86,7 +94,15 @@ class Dial extends Component {
 
 
     calculateRadiansOutside() {
-        var percent = this.state.timeLeft / this.state.classTime;
+    	var percent;
+    	if (this.state.passing === false) {
+       		percent = this.state.timeLeft / this.state.classTime;
+       	}
+       	else{
+
+       		percent = this.state.passingTimeLeft / this.state.passingTime;
+
+       	}
         this.rad = percent * 2 * Math.PI;
     };
 
@@ -142,14 +158,19 @@ class Dial extends Component {
 
         this.state.daySchedule = this.week[dayOfWeek]
 
+
     	for (var i = 0; i < currentDay.length; i++) {
     		var currentBlock = currentDay[i];
 			var timeString = currentBlock["end"];
 			var blockNow = "Block " + currentBlock["number"];
 			var blockNext;
+
 			var durationTime = currentBlock["duration"] * 60;
 			if (i + 1 < currentDay.length) {
 				blockNext = "Block " + currentDay[i + 1]["number"];
+				if (currentDay[i+1]["number"] === "Asmb") {
+					blockNext = "Assembly"
+				}
 			}
 			else {
 				blockNext = "nothing"
@@ -167,14 +188,28 @@ class Dial extends Component {
         var endMilliseconds = endSeconds * 1000
         var CT = this.state.classTime;
         var TL = endSeconds - Nseconds;
+
+
         
-        this.setState({timeLeft : CT - TL, 
-        	numberOfClasses: currentDay.length, 
+        this.setState(
+        	{timeLeft : CT - TL, 
+        	numberOfClasses: 7, 
         	currentBlock: blockNow, 
         	nextBlock: blockNext, 
         	classTime: durationTime,
-        	currentEndMilli : endMilliseconds
-        })
+        	currentEndMilli : endMilliseconds}
+        );
+
+
+
+        if (TL > CT) {
+        	var PTL = TL-CT
+        	this.setState({passing: true, passingTimeLeft: PTL});
+        }
+        else {
+        	this.setState({passing: false});
+        }
+
 
 
         this.subtractTwoTimes();
@@ -272,7 +307,6 @@ class Dial extends Component {
                 <path id={"littlePath" + i} d={littlePath}>
                 </path>
             );
-
         
         
         }
