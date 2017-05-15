@@ -58,13 +58,15 @@ class Announcements extends Component {
         for (var j = 0; j < lenAnn; ++j) {
           annList.push(
                 <div className="announcement" id={"announcement" + j} >
-                  <span className="announcement-title">
+                  <div className="announcement-title">
                   <div className={"unread" + (JSON.parse(localStorage.an).includes(annArray[j][0]) ? " readClass" : "")}></div>
-                    <button role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
+                    <button role="button" className="sizing" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
                       {annArray[j][1]}
-                      <span className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : " flipdownClass")}></span>
                     </button>
-                  </span>
+                    <button className="sizing2" role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
+                      <div className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : " flipdownClass")}></div>
+                    </button>
+                  </div>
                   <div className={"collapse collapse" + j}>
                     <div className="description">
                       {annArray[j][2]}
