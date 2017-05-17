@@ -18,7 +18,7 @@ class Dial extends Component {
             currentDisplay : "100",
             currentTimeInSeconds: 100,
             currentEndMilli: 100,
-            numberOfClasses: 7,
+            numberOfClasses: 6,
             currentBlock: 1,
             nextBlock: 1,
             daySchedule: undefined, 
@@ -190,15 +190,27 @@ class Dial extends Component {
         var TL = endSeconds - Nseconds;
 
 
-        
-        this.setState(
-        	{timeLeft : CT - TL, 
-        	numberOfClasses: 7, 
-        	currentBlock: blockNow, 
-        	nextBlock: blockNext, 
-        	classTime: durationTime,
-        	currentEndMilli : endMilliseconds}
-        );
+        if (this.state.daySchedule) {
+            this.setState(
+            	{timeLeft : CT - TL, 
+            	numberOfClasses: this.state.daySchedule.length, 
+            	currentBlock: blockNow, 
+            	nextBlock: blockNext, 
+            	classTime: durationTime,
+            	currentEndMilli : endMilliseconds,}
+            );
+        }
+        else {
+            this.setState(
+                {timeLeft : CT - TL,
+                numberOfClasses: 7, 
+                currentBlock: blockNow, 
+                nextBlock: blockNext, 
+                classTime: durationTime,
+                currentEndMilli : endMilliseconds,}
+            );
+        }
+
 
 
 
@@ -292,7 +304,16 @@ class Dial extends Component {
             var wedgeLabel = "";
 
             if (this.state.daySchedule) {
-              wedgeLabel = this.state.daySchedule[i].number.toString();  
+                if (this.state.daySchedule[i]) {
+                    if (this.state.daySchedule[i].number){
+                        wedgeLabel = this.state.daySchedule[i].number.toString();  
+                    }
+                    if (this.state.daySchedule[i].name) {
+                        wedgeLabel = this.state.daySchedule[i].name;
+                    }
+
+                }
+              
             } 
 
             currentStartRadians += wedgeRadians;
@@ -308,6 +329,7 @@ class Dial extends Component {
                 </path>
             );
         
+            console.log(this.state.numberOfClasses)
         
         }
 
