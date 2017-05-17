@@ -95,6 +95,7 @@ body {
 #sizing {
 	width: 90%;
 	float: left;
+	padding-left: 0px;
 }
 
 #sizing2 {
