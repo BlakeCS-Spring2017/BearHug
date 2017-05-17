@@ -52,16 +52,16 @@ class Dial extends Component {
         ];
         this.wednesday = [
         	{"duration":65, "end":"9:35am", "number":3, "start":"8:30am"},
-        	{"duration":35, "end":"10:15am", "number":"Adv.", "start":"9:40am"},
+        	{"duration":35, "end":"10:15am", "name":"Lip Sync Battle", "start":"9:40am"},
         	{"duration":65, "end":"11:25am", "number":2, "start":"10:20am"},
         	{"duration":100, "end":"1:10pm", "number":4, "start":"11:30am"},
-        	{"duration":65, "end":"1:50pm", "number":"TASC", "start":"1:15pm"},
+        	{"duration":65, "end":"1:50pm", "name":"TASC", "start":"1:15pm"},
         	{"duration":65, "end":"3:00pm", "number":5, "start":"1:55pm"},
 
         ];
         this.thursday = [
         	{"duration":65, "end":"9:05am", "number":2, "start":"8:00am"},
-        	{"duration":40, "end":"9:50am", "number":"Asmb", "start":"9:10am"},
+        	{"duration":40, "end":"9:50am", "name":"Asmb", "start":"9:10am"},
         	{"duration":65, "end":"11:00am", "number":1, "start":"9:55am"},
         	{"duration":95, "end":"12:40pm", "number":3, "start":"11:05am"},
         	{"duration":65, "end":"1:50pm", "number":6, "start":"12:45pm"},
@@ -306,10 +306,21 @@ class Dial extends Component {
             if (this.state.daySchedule) {
                 if (this.state.daySchedule[i]) {
                     if (this.state.daySchedule[i].number){
-                        wedgeLabel = this.state.daySchedule[i].number.toString();  
+                        wedgeLabel = this.state.daySchedule[i].number.toString();
+                        
+                        textArray.push(
+                            <text id={"text" + i} className="goodFont" x={textX} y={textY} fontSize=".02em" textAnchor="middle"> 
+                                {wedgeLabel}
+                            </text>
+                        );  
                     }
                     if (this.state.daySchedule[i].name) {
                         wedgeLabel = this.state.daySchedule[i].name;
+                          textArray.push(
+                            <text id={"text" + i} className="goodFont" x={textX} y={textY} fontSize=".01em" textAnchor="middle"> 
+                                {wedgeLabel}
+                            </text>
+                        );  
                     }
 
                 }
@@ -318,18 +329,10 @@ class Dial extends Component {
 
             currentStartRadians += wedgeRadians;
 
-            textArray.push(
-                <text id={"text" + i} className="goodFont" x={textX} y={textY} fontSize=".02em" textAnchor="middle"> 
-                {wedgeLabel}
-                </text>
-            );
-
             wedgeArray.push(
                 <path id={"littlePath" + i} d={littlePath}>
                 </path>
             );
-        
-            console.log(this.state.numberOfClasses)
         
         }
 
