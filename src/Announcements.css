@@ -19,9 +19,6 @@ body {
 	margin-left: -20px;
 	margin-top: -20px;
 }
-#chevsizing {
-	width: 20%;
-}
 
 .sizing {
 	width: 95%;
@@ -29,6 +26,7 @@ body {
 
 .sizing2 {
 	width: 5%;
+	float: right;
 }
 
 .announcement {
@@ -94,6 +92,15 @@ body {
 	text-align: center;
 }
 
+#sizing {
+	width: 90%;
+	float: left;
+}
+
+#sizing2 {
+	width: 10%;
+	float: right;
+}
 button {
 	border: 0;
 	width: 100%;
