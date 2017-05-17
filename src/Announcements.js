@@ -71,7 +71,7 @@ class Announcements extends Component {
                       {annArray[j][1]}
                     </button>
                     <button className="sizing2" role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
-                      <div className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : " flipdownClass")}></div>
+                      <span className={"glyphicon glyphicon-chevron-down" + (this.state.tri.includes(annArray[j][0]) ? " flipClass" : " flipdownClass")}></span>
                     </button>
                   </div>
                   <div className={"collapse collapse" + j}>
