@@ -52,11 +52,18 @@ class Announcements extends Component {
         var annArray = [];
         var keys = Object.keys(this.props.annTotal);
         for (var i = 0; i < lenAnn; i++) {
-          annArray.push(this.props.annTotal[keys[i]]);
-        }   
+          var currentAnnouncement = this.props.annTotal[keys[i]]
+          var time = new Date();
+          var expireDate = new Date(currentAnnouncement[3]);
+          if (expireDate >= time) {
+            annArray.push(this.props.annTotal[keys[i]]);
+          }
+        }
         var annList = [];
-        for (var j = 0; j < lenAnn; ++j) {
-          annList.push(
+        for (var j = 0; j < annArray.length; ++j) {
+          var annText = annArray[j][2]
+          // annText = annText.replace(/ _^(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,})))(?::\d{2,5})?(?:/[^\s]*)?$_iuS/g, )
+          annList.unshift(
                 <div className="announcement" id={"announcement" + j} >
                   <div className="announcement-title">
                   <div className={"unread" + (JSON.parse(localStorage.an).includes(annArray[j][0]) ? " readClass" : "")}></div>
@@ -69,7 +76,7 @@ class Announcements extends Component {
                   </div>
                   <div className={"collapse collapse" + j}>
                     <div className="description">
-                      {annArray[j][2]}
+                      {annText}
                     </div>
                   </div>
                 </div>
@@ -81,6 +88,7 @@ class Announcements extends Component {
       <div className="Page-Title">
         Bulletin
       </div>
+
       <div>
         {annList}
       </div>

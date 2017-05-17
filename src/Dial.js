@@ -295,7 +295,7 @@ class Dial extends Component {
               wedgeLabel = this.state.daySchedule[i].number.toString();  
             } 
 
-            currentStartRadians += wedgeRadians
+            currentStartRadians += wedgeRadians;
 
             textArray.push(
                 <text id={"text" + i} className="goodFont" x={textX} y={textY} fontSize=".02em" textAnchor="middle"> 

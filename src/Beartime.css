@@ -1,38 +1,13 @@
-/* Beartime for an Iphone 6+ */
-@media only screen and (max-width: 414px) and (min-width: 414px) {
-	#beartime {
-		width: 414px;
-		height: 736px;
-	}
+#iframeHeight {
+	height: 100vh;
+	padding-bottom: 70px;
 }
 
-
-/*Beartime for an Iphone 6*/
-@media only screen and (max-width: 375px) and (min-width: 375px) {
-	#beartime {
-		width: 375px;
-		height: 667px;
-	}
-}
-/*Beartime for an Iphone 5 and 4 */
-@media only screen and (max-width: 320px) and (min-width: 320px) {
-	#beartime {
-		width: 320px;
-		height: 568px;
-	}
-}
-
-/*Beartime for a Galaxy S5 */
-@media only screen and (max-width: 360px) and (min-width: 360px) {
-	#beartime {
-		width: 360px;
-		height: 640px;
-	}
-}
-
-
-/*Beartime for a regular screen*/
 #beartime {
 	width: 100%;
-	height: 800px;
+	height: 100%;
+}
+
+iframe {
+	border: 0;
 }
