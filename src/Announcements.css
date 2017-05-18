@@ -20,11 +20,13 @@ body {
 	margin-top: -20px;
 }
 
-.sizing {
+
+#sizing {
 	width: 95%;
+
 }
 
-.sizing2 {
+#sizing2 {
 	width: 5%;
 	float: right;
 }
