@@ -93,6 +93,7 @@ body {
 }
 #buttonsizing {
 	padding-left: 0;
+	float: left;
 }
 #sizing {
 	width: 90%;
