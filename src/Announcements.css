@@ -19,14 +19,15 @@ body {
 	margin-left: -20px;
 	margin-top: -20px;
 }
-
-
-#sizing {
-	width: 95%;
-
+#chevsizing {
+	width: 20%;
 }
 
-#sizing2 {
+.sizing {
+	width: 95%;
+}
+
+.sizing2 {
 	width: 5%;
 	float: right;
 }
