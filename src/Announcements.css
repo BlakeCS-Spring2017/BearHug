@@ -91,7 +91,9 @@ body {
 	display: block;
 	text-align: center;
 }
-
+#buttonsizing {
+	padding-left: 0;
+}
 #sizing {
 	width: 90%;
 	float: left;
