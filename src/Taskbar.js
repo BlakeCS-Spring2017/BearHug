@@ -7,17 +7,13 @@ import {
 class Taskbar extends Component {
   render() {
     return (
-
     <div>
-
       <ul>
         <li><a href="/">Dial</a></li>
         <li><a href="/beartime">Beartime</a></li>
         <li><a href="/announcements">Announcements</a></li>
         <li><a href="/lunch">Lunch</a></li>
       </ul>
-
-
       <ul>
         <li><Link to="/" className={(window.location.hash === "#/") ? "active" : ""}>
           <span className="glyphicon glyphicon-home" aria-hidden="true"> 
@@ -37,6 +33,7 @@ class Taskbar extends Component {
           <span className="glyphicon glyphicon-bullhorn" aria-hidden="true">
             <div className="Name">
               Bulletin
+              <span className={"read" + (this.state.Taskbar===true) ? " read" : " classRead"}>!</span>
             </div> 
           </span>
         </Link></li>

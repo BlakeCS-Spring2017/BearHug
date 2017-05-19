@@ -39,6 +39,21 @@ li a {
     font-size: 200%;
 }
 
+.read {
+    background-color: red;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    margin-left: -10px;
+    margin-top: -20px;
+    padding-left: 10px;
+    float: right;
+}
+.classread {
+    opacity: 0;
+}
+
 .active {
     background-color: #0C1519;
 }
@@ -58,7 +73,7 @@ ul {
 }
 
 .glyphicon{
-	font-size: 20px;
+	font-size: ;
 	color: white;
 }
 
