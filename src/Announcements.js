@@ -22,7 +22,7 @@ class Announcements extends Component {
   buttonClick(e){
     if (!JSON.parse(localStorage.an).includes(e.currentTarget.id)){
       this.state.readAnnouncements.push(e.currentTarget.id)
-      localStorage.an= JSON.stringify(this.state.readAnnouncements)
+      localStorage.an = JSON.stringify(this.state.readAnnouncements)
     } else {
     }
     this.forceUpdate();
@@ -62,7 +62,6 @@ class Announcements extends Component {
         var annList = [];
         for (var j = 0; j < annArray.length; ++j) {
           var annText = annArray[j][2]
-          // annText = annText.replace(/ _^(?:(?:https?|ftp)://)(?:\S+(?::\S*)?@)?(?:(?!10(?:\.\d{1,3}){3})(?!127(?:\.\d{1,3}){3})(?!169\.254(?:\.\d{1,3}){2})(?!192\.168(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)(?:\.(?:[a-z\x{00a1}-\x{ffff}0-9]+-?)*[a-z\x{00a1}-\x{ffff}0-9]+)*(?:\.(?:[a-z\x{00a1}-\x{ffff}]{2,})))(?::\d{2,5})?(?:/[^\s]*)?$_iuS/g, )
           annList.unshift(
                 <div className="announcement" id={"announcement" + j} >
                   <button className="ButtonFixing" role="button" id={annArray[j][0]} data-toggle="collapse" href={".collapse" + j} aria-expanded="false" aria-controls="collapseExample" onClick={this.buttonClick}>
@@ -81,7 +80,7 @@ class Announcements extends Component {
                           <br></br>
                             {annArray[j][4]}  
                         </a>
-                          }                  
+                        }                  
                       </div>
                     </div>
                   </div>

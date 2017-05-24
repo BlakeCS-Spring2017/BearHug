@@ -39,7 +39,6 @@ li a {
     font-size: 200%;
 }
 
-
 .active {
     background-color: #0C1519;
 }
@@ -62,6 +61,10 @@ ul {
 	font-size: ;
 	color: white;
 }
+
+/*.red {
+    color: red;
+}*/
 
 
 /*Here is where we determine size of screen for phones*/
