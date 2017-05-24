@@ -30,7 +30,7 @@ class Taskbar extends Component {
           </span>
         </Link></li>
         <li><Link to="/announcements" className={(window.location.hash === "#/announcements") ? "active" : ""}>
-          <span className= "glyphicon glyphicon-bullhorn" aria-hidden="true">
+          <span className="glyphicon glyphicon-bullhorn" aria-hidden="true">
             <div className="Name">
               Bulletin
             </div> 
