@@ -75,6 +75,11 @@ class Announcements extends Component {
                   <div className={"collapse collapse" + j}>
                     <div className="description">
                       {annText}
+                      <span id="LinkFix">
+                        <a id="LinkFixing" href={annArray[j][4]}>
+                          Click Here For More Info!
+                        </a>
+                      </span>
                     </div>
                   </div>
                 </div>
