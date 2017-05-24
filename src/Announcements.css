@@ -76,18 +76,23 @@ body {
 	background-color: #7CB341;
 }
 
-#LinkFixing {
+.LinkFixing {
 	color: white;
-	text-decoration: none;
+	text-decoration: underline;
 	background-color: transparent;
 	word-wrap: break-word;
 	padding: 0px;
 
 }
 
-#LinkFix {
+
+.LinkFix {
 	background-color: transparent;
 	padding: 0px;
+}
+
+.noLink {
+	display: none;
 }
 
 .glyphicon.glyphicon-chevron-down {
