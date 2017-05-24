@@ -79,15 +79,15 @@ body {
 #LinkFixing {
 	color: white;
 	text-decoration: none;
-	padding: none;
 	background-color: transparent;
+	word-wrap: break-word;
+	padding: 0px;
 
 }
 
 #LinkFix {
 	background-color: transparent;
-	display: block;
-	float: left;
+	padding: 0px;
 }
 
 .glyphicon.glyphicon-chevron-down {

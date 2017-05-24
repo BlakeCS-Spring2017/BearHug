@@ -33,7 +33,6 @@ class Taskbar extends Component {
           <span className="glyphicon glyphicon-bullhorn" aria-hidden="true">
             <div className="Name">
               Bulletin
-              <span className={"read" + (this.state.Taskbar===true) ? " read" : " classRead"}>!</span>
             </div> 
           </span>
         </Link></li>
