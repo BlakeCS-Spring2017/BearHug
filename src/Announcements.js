@@ -54,9 +54,14 @@ class Announcements extends Component {
         for (var i = 0; i < lenAnn; i++) {
           var currentAnnouncement = this.props.annTotal[keys[i]]
           var time = new Date();
-          var expireDate = new Date(currentAnnouncement[3]);
-          if (expireDate >= time) {
+          var expireDate = new Date(currentAnnouncement[4]);
+          var startDate = new Date(currentAnnouncement[3]);
+          if (startDate <= time && expireDate >= time) {
             annArray.push(this.props.annTotal[keys[i]]);
+          }
+
+          if (expireDate <= time) {
+            annArray.splice(this.props.annTotal[keys[i]]);
           }
         }
         var annList = [];
@@ -75,10 +80,10 @@ class Announcements extends Component {
                     <div className="description">
                       {annText}
                       <div className="LinkFix">
-                        {annArray[j][4] !== "" &&
+                        {annArray[j][5] !== "" &&
                         <a className="LinkFixing" href={annArray[j][4]}>
                           <br></br>
-                            {annArray[j][4]}  
+                            {annArray[j][5]}  
                         </a>
                         }                  
                       </div>
