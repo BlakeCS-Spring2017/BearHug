@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Dial.css';
+import moment from 'moment';
 
 class Dial extends Component {
     constructor() {
@@ -20,7 +21,9 @@ class Dial extends Component {
             currentEndMilli: 100,
             numberOfClasses: 6,
             currentBlock: 1,
+            currentBlockDisplay: "",
             nextBlock: 1,
+            nextBlockDisplay: "",
             daySchedule: undefined, 
             passing: false,
             passingTime: 300, // These are slightly redundant but are used so not to confuse classTime and timeLeft
@@ -37,7 +40,8 @@ class Dial extends Component {
         	{"duration":45, "end":"9:45am", "number":2, "start":"9:00am"},
         	{"duration":30, "end":"10:15am", "name":"Tut", "start":"9:45am"},
         	{"duration":45, "end":"11:05am", "number":3, "start":"10:20am"},
-        	{"duration":45, "end":"12:30pm", "number":4, "start":"11:10am"},
+        	{"duration":45, "end":"11:55pm", "number":4, "start":"11:10am"},
+            {"duration":35, "end":"12:30pm", "name":"Lunch", "start":"11:55am"},
         	{"duration":45, "end":"12:35", "number":5, "start":"1:20pm"},
         	{"duration":45, "end":"2:10pm", "number":6, "start":"1:25pm"},
         	{"duration":45, "end":"3:00pm", "number":7, "start":"2:15pm"}
@@ -46,13 +50,14 @@ class Dial extends Component {
         	{"duration":65, "end":"9:05am", "number":1, "start":"8:00am"},
         	{"duration":40, "end":"9:50am", "name":"Asmb", "start":"9:10am"},
         	{"duration":65, "end":"11:00am", "number":4, "start":"9:55am"},
-        	{"duration":95, "end":"12:40pm", "number":5, "start":"11:05am"},
+        	{"duration":95, "end":"12:10pm", "number":5, "start":"11:05am"},
+            {"duration":30, "end":"12:40pm", "name":"Lunch", "start":"12:10am"},
         	{"duration":65, "end":"1:50pm", "number":7, "start":"12:45pm"},
         	{"duration":65, "end":"3:00pm", "number":6, "start":"1:55pm"},
         ];
         this.wednesday = [
         	{"duration":65, "end":"9:35am", "number":3, "start":"8:30am"},
-        	{"duration":35, "end":"10:15am", "name":"Lip Sync Battle", "start":"9:40am"},
+        	{"duration":35, "end":"10:15am", "name":"Adv", "start":"9:40am"},
         	{"duration":65, "end":"11:25am", "number":2, "start":"10:20am"},
         	{"duration":100, "end":"1:10pm", "number":4, "start":"11:30am"},
         	{"duration":65, "end":"1:50pm", "name":"TASC", "start":"1:15pm"},
@@ -98,7 +103,7 @@ class Dial extends Component {
     	if (this.state.passing === false) {
        		percent = this.state.timeLeft / this.state.classTime;
        	}
-       	else{
+       	else {
 
        		percent = this.state.passingTimeLeft / this.state.passingTime;
 
@@ -113,12 +118,16 @@ class Dial extends Component {
 
     returnSecondsOf(timeString) {
     	var ending = timeString;
-        var dayHalf = ending.slice(ending.length - 2, ending.length);
-        ending = ending.slice(0, ending.length - 2);
-        var pos = ending.indexOf(":");
-        var endHours = ending.slice(0, pos);
-
-        var endMinutes = ending.slice(pos + 1,ending.length);
+        if (ending) {
+            var dayHalf = ending.slice(ending.length - 2, ending.length);
+            ending = ending.slice(0, ending.length - 2);
+            var pos = ending.indexOf(":");
+            var endHours = ending.slice(0, pos);
+            var endMinutes = ending.slice(pos + 1, ending.length);
+        }
+        else {
+            this.state.currentDisplay = "00:00";
+        }
 
         endHours = parseInt(endHours, 10);
         endMinutes = parseInt(endMinutes, 10);
@@ -162,24 +171,28 @@ class Dial extends Component {
     	for (var i = 0; i < currentDay.length; i++) {
     		var currentBlock = currentDay[i];
 			var timeString = currentBlock["end"];
-			var blockNow = "Block " + currentBlock["number"];
+			var blockNow = currentBlock["number"];
 			var blockNext;
 
 			var durationTime = currentBlock["duration"] * 60;
 			if (i + 1 < currentDay.length) {
-				blockNext = "Block " + currentDay[i + 1]["number"];
-				if (currentDay[i+1]["number"] === "Asmb") {
+				blockNext = currentDay[i + 1]["number"];
+
+				if (currentDay[i + 1]["number"] === "Asmb") {
 					blockNext = "Assembly"
 				}
 			}
+
 			else {
-				blockNext = "nothing"
+				blockNext = "No School"
 			}
+
 			var timeEnd = this.returnSecondsOf(timeString);
 			if (timeEnd > Nseconds) {
 				this.state.end = timeString
 				break
 			}
+
     	};
 
 
@@ -212,8 +225,6 @@ class Dial extends Component {
         }
 
 
-
-
         if (TL > CT) {
         	var PTL = TL-CT
         	this.setState({passing: true, passingTimeLeft: PTL});
@@ -223,12 +234,9 @@ class Dial extends Component {
         }
 
 
-
         this.subtractTwoTimes();
         this.setCurrentTimeInMilli();
 
-        
-        
     };
 
 
@@ -313,6 +321,12 @@ class Dial extends Component {
                                 {wedgeLabel}
                             </text>
                         );  
+
+                        wedgeArray.push(
+                            <path className={"block" + this.state.daySchedule[i].number} d={littlePath}>
+                            </path>
+                         );
+
                     }
                     if (this.state.daySchedule[i].name) {
                         wedgeLabel = this.state.daySchedule[i].name;
@@ -321,6 +335,11 @@ class Dial extends Component {
                                 {wedgeLabel}
                             </text>
                         );  
+
+                        wedgeArray.push(
+                            <path className="nameColor" d={littlePath}>
+                            </path>
+                        );
                     }
 
                 }
@@ -329,11 +348,6 @@ class Dial extends Component {
 
             currentStartRadians += wedgeRadians;
 
-            wedgeArray.push(
-                <path id={"littlePath" + i} d={littlePath}>
-                </path>
-            );
-        
         }
 
         this.calculateRadiansOutside()
@@ -357,59 +371,49 @@ class Dial extends Component {
         // above is for the right side
 
         var arcPath = "M "+point1x+" "+point1y+" A 1 1, 0, "+orientOut+" "+point2x+" "+point2y+" L "+point3x+" "+point3y+" A" +this.thickness+ +this.thickness+ ", 0, "+orientIn+" "+point4x+" "+point4y+ " Z";
-        // above is the path for the outside dial circle
 
 
        
-    return (
+        return (
 
-<div> 
-    <div id="wholeDial">
+            <div> 
+                <div id="wholeDial">
 
-        <div id="currentBlockName">
-            <p id="now"> Now: 
-            <span id="nowClass"> {this.state.currentBlock} </span> 
-            </p>
-        </div>
+                    <div id="currentBlockName">
+                        <p id="now"> Now: 
+                        <span id="nowClass" className={"text" + this.state.currentBlock}> {this.state.currentBlock} </span> 
+                        </p>
+                    </div>
 
 
-        <svg id="dial" viewBox="-1 -1 2 2">
-        // viewbox makes the graph with sin and cos possible
-            
-            <path id="arc" d={arcPath} />
+                    <svg id="dial" viewBox="-1 -1 2 2">
+                    // viewbox makes the graph with sin and cos possible
+                        
+                        <path id="arc" className= {"block" + this.state.currentBlock} d={arcPath} />
 
-            {wedgeArray}
+                        {wedgeArray}
 
-            {textArray}
+                        {textArray}
 
-            <text className="time" x="0" y=".07" fontSize="0.2px" textAnchor="middle" fill="white">
-                {this.state.currentDisplay}
-            </text>
-        
-        </svg>
+                        <text className="time" x="0" y=".07" fontSize="0.2px" textAnchor="middle" fill="white">
+                            {this.state.currentDisplay}
+                        </text>
+                    
+                    </svg>
 
-       
+                    <div>
+                        <p id="next" > Next: 
+                        <span id="nextClass" className={"text" + this.state.nextBlock} > {this.state.nextBlock} </span>
+                        </p>
+                    </div>
 
-        <div id="nowNext">
-            <p id="now"> </p>
-            <p id="classNow"> </p>
-            <p id="next">  </p>
-            <p id="classNext"> </p>
+                </div>
 
-        </div>
+            </div>
 
-        <div>
-            <p id="next"> Next: 
-            <span id="nextClass"> {this.state.nextBlock} </span>
-            </p>
-        </div>
+        );
 
-    </div>
-
-</div>
-
-    );
-  }; 
+    }; 
 
 };
 

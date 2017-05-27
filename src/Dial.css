@@ -1,7 +1,7 @@
 
 #dial{
 	display: block;
-	fill: #1565c0;
+	fill: #7CB341;
 	z-index: -1;
 }
 
@@ -15,54 +15,65 @@
 	margin-left: 5%;
 }
 
-#littlePath0{
- fill: #3f51b5;
-}
-
-#littlePath1{
-  /* fill: #2c383e; */
- /* grey color */
+.nameColor{
  fill: gray;
 }
 
-#littlePath2{
+.block1{
+ fill: #3f51b5;
+}
+
+.block2{
  fill: #1565c0;
 }
 
-#littlePath3{
+.block3{
+ fill: #03a9f4;
+}
+
+.block4{
  fill: #00acc1;
 }
 
-#littlePath4{
+.block5{
  fill: #009688;
 }
 
-#littlePath5{
- fill: #43A046;
+.block6{
+ fill: #43a047;
 }
 
-#littlePath6{
+.block7{
  fill: #7CB341;
 }
 
-/*#3f51b5
+.text1{
+ color: #3f51b5;
+}
 
-#1565c0
+.text2{
+ color: #1565c0;
+}
 
-#00acc1
+.text3{
+ color: #03a9f4;
+}
 
+.text4{
+ color: #00acc1;
+}
 
+.text5{
+ color: #009688;
+}
 
-#009688
+.text6{
+ color: #43a047;
+}
 
-#43A046
-
-#7CB341 */
-
-/* color 2 #43A046 */
-
-/*#3f51b5 *?
-/* color 5 #39A4DC */
+.text7{
+ color: #7CB341;
+}
 
 .time {
 	font-weight: lighter;
@@ -74,7 +85,6 @@
 #nextClass {
 	font-size: 1em;
 	text-align: center;
-	color: #00acc1;
 	font-weight: 200;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 }
@@ -90,7 +100,6 @@
 #nowClass {
 	text-align: center;
 	font-size: 1em;
-	color: #1565c0;
 	font-weight: 200;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 
@@ -103,7 +112,6 @@
 	font-weight: 200;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
   }
-
 
 
 .goodFont {
