@@ -58,12 +58,21 @@ class Announcements extends Component {
           var startDate = new Date(currentAnnouncement[3]);
           if (startDate <= time && expireDate >= time) {
             annArray.push(this.props.annTotal[keys[i]]);
+            this.forceUpdate
           }
 
           if (expireDate <= time) {
             annArray.splice(this.props.annTotal[keys[i]]);
+            this.forceUpdate
+          }
+
+          if (currentAnnouncement[3] === "") {
+            annArray.push(this.props.annTotal[keys[i]]);
+            this.forceUpdate
           }
         }
+
+          
         var annList = [];
         for (var j = 0; j < annArray.length; ++j) {
           var annText = annArray[j][2]
