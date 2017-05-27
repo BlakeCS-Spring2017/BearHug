@@ -11,9 +11,15 @@ class Dial extends Component {
 
         this.state = {
             lunchSettings: [1,1,1,1,1];
+
+            passing: false,
+
+            daySchedule: null,
+            dayNumber: 0,
         };
         
-        this.monday = [{"duration":45, "end":"8:55am", "number":1, "start":"8:10am"},
+        this.monday = [
+            {"duration":45, "end":"8:55am", "number":1, "start":"8:10am"},
             {"duration":45, "end":"9:45am", "number":2, "start":"9:00am"},
             {"duration":30, "end":"10:15am", "name":"Tutorial", "start":"9:45am"},
             {"duration":45, "end":"11:05am", "number":3, "start":"10:20am"},
@@ -53,10 +59,30 @@ class Dial extends Component {
 
     determineDaySchedule(scheduleData) {
 
+        // all this makes an array for the day with correct lunches corresponding to lunch settings
+        
+        var returnSchedule;
+        var lunchForDay = this.state.lunchSettings[dayNumber];
+
+        for (var i = 0; i < scheduleData.length; i++) {
+            if (scheduleData[i]["lunch"]) {
+                if (scheduleData[i]["lunch"]===lunchForDay) {
+                    returnSchedule.push(scheduleData[i]);
+                }
+            }
+            else{
+                returnSchedule.push(scheduleData[i]);
+            }
+        }
+
+        return returnSchedule;
+
+        // --all this makes an array for the day with correct lunches corresponding to lunch settings
     };
 
 
     componentWillMount() {
+        this.determineDaySchedule = this.determineDaySchedule.bind(this)
         var returnDay = determineDay();
         var daySchedule;
 
@@ -64,6 +90,7 @@ class Dial extends Component {
                 returnDay -= 1
                 if returnDay < 5 {
                     daySchedule = this.week[returnDay];
+                    this.setState({dayNumber: returnDay});
                 }
                 else {
                     daySchedule = "No School"   
@@ -76,7 +103,12 @@ class Dial extends Component {
         var scheduleForDial = determineDaySchedule(daySchedule);
     };
 
+    render() {
 
+        return() {
+
+        };
+    };
 
 };
 
