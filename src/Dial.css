@@ -16,7 +16,7 @@
 }
 
 .nameColor{
- fill: gray;
+ fill: #969696;
 }
 
 .block1{
@@ -79,6 +79,10 @@
 	font-weight: lighter;
   	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
   	fill:white;
+}
+
+.lunchColor {
+	fill: gray;
 }
 
 

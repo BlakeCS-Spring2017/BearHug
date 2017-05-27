@@ -56,12 +56,13 @@ class Dial extends Component {
         	{"duration":65, "end":"3:00pm", "number":6, "start":"1:55pm"},
         ];
         this.wednesday = [
-        	{"duration":65, "end":"9:35am", "number":3, "start":"8:30am"},
-        	{"duration":35, "end":"10:15am", "name":"Adv", "start":"9:40am"},
-        	{"duration":65, "end":"11:25am", "number":2, "start":"10:20am"},
-        	{"duration":100, "end":"1:10pm", "number":4, "start":"11:30am"},
-        	{"duration":65, "end":"1:50pm", "name":"TASC", "start":"1:15pm"},
-        	{"duration":65, "end":"3:00pm", "number":5, "start":"1:55pm"},
+            {"duration":65, "end":"9:35am", "number":3, "start":"8:30am"},
+            {"duration":35, "end":"10:15am", "name":"Adv", "start":"9:40am"},
+            {"duration":65, "end":"11:25am", "number":2, "start":"10:20am"},
+            {"duration":65, "end":"12:35pm", "number":4, "start":"11:30am"},
+            {"duration":35, "end":"1:10pm", "name":"Second Lunch", "start":"12:40pm"},
+            {"duration":35, "end":"1:50pm", "name":"TASC", "start":"1:15pm"},
+            {"duration":65, "end":"3:00pm", "number":5, "start":"1:55pm"},
 
         ];
         this.thursday = [
@@ -158,14 +159,18 @@ class Dial extends Component {
     	var currentDay;
     	var dayOfWeek = time.getDay();
     	dayOfWeek -= 1;
-    	if (dayOfWeek > 4) {
-    		currentDay = this.noSchool;
-    	}
-    	else {
-    		currentDay = this.week[dayOfWeek];
-    	}
+    	// if (dayOfWeek > 4) {
+    	// 	currentDay = this.noSchool;
+    	// }
+    	// else {
+    	// 	currentDay = this.week[dayOfWeek];
+    	// }
 
-        this.state.daySchedule = this.week[dayOfWeek]
+        currentDay = this.wednesday;
+        this.state.daySchedule = this.wednesday;
+
+        // this.state.daySchedule = this.week[dayOfWeek]
+        console.log(this.state.daySchedule)
 
 
     	for (var i = 0; i < currentDay.length; i++) {
@@ -329,17 +334,30 @@ class Dial extends Component {
 
                     }
                     if (this.state.daySchedule[i].name) {
-                        wedgeLabel = this.state.daySchedule[i].name;
+                           if (this.state.daySchedule[i].name === "Second Lunch") {
+                            wedgeLabel = "2nd"
+                                wedgeArray.push(
+                                    <path className="lunchColor" d={littlePath}>
+                                    </path>
+                                );
+
+                            }
+
+                        else{
+                            wedgeLabel = this.state.daySchedule[i].name;
+
+                            wedgeArray.push(
+                                <path className="nameColor" d={littlePath}>
+                                </path>
+                            );
+                        }
                           textArray.push(
                             <text id={"text" + i} className="goodFont" x={textX} y={textY} fontSize=".01em" textAnchor="middle"> 
                                 {wedgeLabel}
                             </text>
                         );  
 
-                        wedgeArray.push(
-                            <path className="nameColor" d={littlePath}>
-                            </path>
-                        );
+
                     }
 
                 }
