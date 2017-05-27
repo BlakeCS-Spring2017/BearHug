@@ -90,7 +90,7 @@ class Announcements extends Component {
                       {annText}
                       <div className="LinkFix">
                         {annArray[j][5] !== "" &&
-                        <a className="LinkFixing" href={annArray[j][4]}>
+                        <a className="LinkFixing" href={annArray[j][5]}>
                           <br></br>
                             {annArray[j][5]}  
                         </a>
