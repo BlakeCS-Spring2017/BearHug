@@ -21,7 +21,7 @@ class Dial extends Component {
             currentEndMilli: 100,
             numberOfClasses: 6,
             currentBlock: 1,
-            currentBlockDisplay: "",
+            currentWedgeText: "",
             nextBlock: 1,
             nextBlockDisplay: "",
             daySchedule: undefined, 
@@ -170,35 +170,79 @@ class Dial extends Component {
         this.state.daySchedule = this.wednesday;
 
         // this.state.daySchedule = this.week[dayOfWeek]
-        console.log(this.state.daySchedule)
+
+    for (var i = 0; i < currentDay.length; i++) {
+                var currentBlock = currentDay[i];
+                var timeString = currentBlock["end"];
+                var blockNow;
+                var prefix;
+
+                if (currentBlock["number"]) {
+                    prefix = "Block ";
+                    blockNow = currentBlock["number"];
+
+                }
+                else {
+                    prefix = currentBlock["name"];
+                    blockNow = 0;
+                }
+
+                if (blockNow === 0) {
+                    this.setState({
+                        currentBlock: blockNow, 
+                        currentWedgeText: (prefix),
+
+                    })
+                }
+                else {
+                    this.setState({
+                        currentBlock: blockNow, 
+                        currentWedgeText: (prefix+blockNow),
+
+                    })
+                }
+                var durationTime = currentBlock["duration"] * 60;
 
 
-    	for (var i = 0; i < currentDay.length; i++) {
-    		var currentBlock = currentDay[i];
-			var timeString = currentBlock["end"];
-			var blockNow = currentBlock["number"];
-			var blockNext;
+                var blockNext;      
+                
+                if (currentDay[i+1]) {
+                    var nextSlot = currentDay[i+1];
 
-			var durationTime = currentBlock["duration"] * 60;
-			if (i + 1 < currentDay.length) {
-				blockNext = currentDay[i + 1]["number"];
+                    if (nextSlot["number"]) {
+                        blockNext = nextSlot["number"];
+                        prefix = "Block "
+                    }
+                    else {
+                        blockNext = 0
+                        prefix = nextSlot["name"];
+                    }
+                }   
+                else{
+                    blockNext = 0
+                    prefix = "No School"
+                }
 
-				if (currentDay[i + 1]["number"] === "Asmb") {
-					blockNext = "Assembly"
-				}
-			}
+                if (blockNext === 0) {
+                    this.setState({
+                        nextBlock: blockNext,
+                        nextWedgeText: (prefix)
+                    })          
+                }
+                else{
+                    this.setState({
+                        nextBlock: blockNext,
+                        nextWedgeText: (prefix+blockNext)
+                    })
+                }
+                var timeEnd = this.returnSecondsOf(timeString);
+                if (timeEnd > Nseconds) {
+                    this.state.end = timeString
+                    break
+                }
 
-			else {
-				blockNext = "No School"
-			}
+            };
 
-			var timeEnd = this.returnSecondsOf(timeString);
-			if (timeEnd > Nseconds) {
-				this.state.end = timeString
-				break
-			}
-
-    	};
 
 
 
@@ -391,6 +435,7 @@ class Dial extends Component {
         var arcPath = "M "+point1x+" "+point1y+" A 1 1, 0, "+orientOut+" "+point2x+" "+point2y+" L "+point3x+" "+point3y+" A" +this.thickness+ +this.thickness+ ", 0, "+orientIn+" "+point4x+" "+point4y+ " Z";
 
 
+
        
         return (
 
@@ -399,7 +444,7 @@ class Dial extends Component {
 
                     <div id="currentBlockName">
                         <p id="now"> Now: 
-                        <span id="nowClass" className={"text" + this.state.currentBlock}> {this.state.currentBlock} </span> 
+                        <span id="nowClass" className={"text" + this.state.currentBlock}> {this.state.currentWedgeText} </span> 
                         </p>
                     </div>
 
@@ -421,7 +466,7 @@ class Dial extends Component {
 
                     <div>
                         <p id="next" > Next: 
-                        <span id="nextClass" className={"text" + this.state.nextBlock} > {this.state.nextBlock} </span>
+                        <span id="nextClass" className={"text" + this.state.nextBlock} > {this.state.nextWedgeText} </span>
                         </p>
                     </div>
 
