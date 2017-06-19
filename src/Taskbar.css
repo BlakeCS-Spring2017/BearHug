@@ -5,6 +5,7 @@ ul {
     list-style: none;
     z-index: 1;
     background-color:#151D21;
+    position: fixed;
 }
 
 .Name {
@@ -121,5 +122,4 @@ ul {
     }
 }
 
-/* Write css here! */
 
