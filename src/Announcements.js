@@ -3,55 +3,65 @@ import './Announcements.css';
 
 class Announcements extends Component {
   render() {
-    return (
-      <div>
 
-      //top 3 announcements
+    var renderStr = "Not Working";
+    if (this.props) {
+      renderStr = this.props.something;
+    }
+
+    var items = [];
+    for (var i = 0; i < 3; ++i) {
+      items.push(
+
+                <div className="announcement" class="accordion-body collapse">
+
+                    <span className="announcement-title">
+
+                      <button className="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href={".collapse" + i} aria-expanded="false" aria-controls="collapseExample">
+
+                          <span className="badge"> ! </span>
+
+                          Announcement #{i+1}
+
+                          <span className={"triangle collapse" + i}></span>
+
+                          <div className={"collapse" + i}> 
+
+                              <div className="description">
+
+                                  ...
+
+                              </div>
+
+                          </div>
+
+                      </button>
+
+                    </span>
+
+                 </div>
+
+
+                )
+    }
+
+    return (
+    <div>
         <div className="page-title">
           Announcements
         </div>
-        <div className="announcement" class="accordion-body collapse">
-          <span className="announcement-title">
-          <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href=".collapseExample1" aria-expanded="fasle" aria-controls="collapseExample">
-          Anouncement #1
-          </button>
-          </span>
-          <span className="triangle collapseExample1"></span>
-          <div class="collapse" className="collapseExample1 collapse">
-              <div class="description">
-                  ...
-              </div>
-          </div>
+
+        <button className="announcement" type = "button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          Announcement #1
+        </button>
+
+        <div className="collapse" id="collapseExample">
+          <div className="well">
+            ...
+           </div>
         </div>
 
-        <div className="announcement" class="accordion-body collapse">
-          <span className="announcement-title">
-          <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href=".collapseExample2" aria-expanded="fasle" aria-controls="collapseExample">
-          Anouncement #2
-          </button>
-          </span>
-          <span className="triangle collapseExample2"></span>
-          <div class="collapse" className="collapseExample2 collapse">
-              <div class="description">
-                  ...
-              </div>
-          </div>
-        </div>
-        <div className="announcement" class="accordion-body collapse">
-          <span className="announcement-title">
-          <button class="btn btn-primary" role="button" href=".triangle" data-toggle="collapse" href=".collapseExample3" aria-expanded="fasle" aria-controls="collapseExample">
-          Anouncement #3
-          </button>
-          </span>
-          <span className="triangle collapseExample3"></span>
-          <div class="collapse" className="collapseExample3 collapse">
-              <div class="description">
-                  ...
-              </div>
-          </div>
-        </div>
-      </div>
-
+    </div>
     );
   }
 }

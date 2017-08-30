@@ -8,7 +8,7 @@ class Dial extends Component {
     <div>
         	<div id="circle">  
         	</div>
-        	<div className = "ViewContainer1">
+        	<div className="ViewContainer1">
         		<div id="circle">
        	 	</div>
        	 	</div>
@@ -16,7 +16,7 @@ class Dial extends Component {
 
 
 
-       		<div className = "ViewContainer2">
+       		<div className="ViewContainer2">
        			<div id="circle2">
        			</div>
        		</div>
