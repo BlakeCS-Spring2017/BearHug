@@ -15,9 +15,7 @@ h1 {
 }
 
 .announcement {
-	align-self: top;
 	margin: 10px;
-	margin-bottom: 2px;
 	padding: 15px;
 	color: #D5D2CA;
 	background-color: #3f51b5;
@@ -29,33 +27,56 @@ h1 {
 
 .announcement-title {
 	width: 65%;
-	size: 5;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;  
+    border-top: 20px solid #969696;
+    align-self: center;
+    float: right;
+}
+
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;  
+    border-bottom: 20px solid #969696;
+    align-self: center;
+    float: right;
 }
 
 button {
-	background-color: white;
+	background-color: #3f51b5;
 	border: 0;
-	width: 100%;
+	width: 85%;
 	text-align: left;
 }
 
 
-.triangle.collapse.in {
-	display: block;
-	transform: rotate(0turn);
-
-}
-
 .triangle.collapse {
+	display: block;
 	transform: rotate(.5turn);
+	transition: .1s;
+
+
 }
 
-.well {
-	margin: 10px;
-	margin-top: 2px;
-	border-radius: 7px;
+.triangle.collapse.in {
+	transform: rotate(0turn);
 }
 
+/*.collapseExample1 {
+	transition: .1s;
+}
 
+.collapseExample2 {
+	transition: .1s;
+}
 
-
+.collapseExample3 {
+	transition: .1s;
+}*/
